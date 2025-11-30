@@ -34,6 +34,7 @@ interface LeaveRequest {
   leaveType: string;
   startDate: string;
   endDate: string;
+  dates?: string;
   duration: number;
   status: 'pending' | 'approved' | 'declined' | 'cancelled';
   reason: string;
