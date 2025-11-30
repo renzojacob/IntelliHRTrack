@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useQuery } from 'react-query'
+import { api } from '../../services/api'
 
 interface LeaveRequest {
   id: string;
@@ -105,6 +107,57 @@ export default function EmployeeLeaves() {
     
     return () => clearInterval(interval);
   }, []);
+
+  // Helper to compute days between two dates
+  const calcDaysBetween = (s?: string, e?: string) => {
+    try {
+      if (!s || !e) return 0
+      const start = new Date(s)
+      const end = new Date(e)
+      const diff = Math.ceil((end.getTime() - start.getTime()) / (1000 * 3600 * 24)) + 1
+      return diff > 0 ? diff : 0
+    } catch {
+      return 0
+    }
+  }
+
+  // Fetch user's leaves from backend; fall back to mock data on error
+  const { data: myLeavesData } = useQuery('my-leaves', async () => {
+    try {
+      const res = await api.get('/api/v1/leaves')
+      return res.data
+    } catch (err) {
+      return null
+    }
+  }, { retry: false })
+
+  // Normalize server data (if present) into UI shape
+  useEffect(() => {
+    if (!myLeavesData) return
+    // server may return array or an object with 'requests'
+    const raw: any[] = Array.isArray(myLeavesData) ? myLeavesData : (myLeavesData.requests || myLeavesData)
+    if (!Array.isArray(raw)) return
+
+    const normalized = raw.map((r: any) => {
+      const start = r.startDate ?? r.start_date ?? r.from ?? ''
+      const end = r.endDate ?? r.end_date ?? r.to ?? ''
+      const days = calcDaysBetween(start, end)
+      return {
+        id: r.id?.toString() ?? String(Date.now()),
+        type: r.type ?? r.leaveType ?? r.name ?? 'Leave',
+        startDate: start,
+        endDate: end,
+        dates: r.dates ?? (start && end ? `${new Date(start).toLocaleDateString()} - ${new Date(end).toLocaleDateString()}` : ''),
+        duration: r.duration ? (typeof r.duration === 'number' ? `${r.duration} days` : r.duration) : `${days} days`,
+        status: r.status ?? 'pending',
+        reason: r.reason ?? r.notes ?? '',
+        approver: r.approver ?? r.manager ?? 'Pending Assignment',
+        submittedAt: r.submittedAt ?? r.submitted_at ?? new Date().toISOString(),
+      }
+    })
+
+    if (normalized.length) setLeaveRequests(normalized)
+  }, [myLeavesData])
 
   // Network status
   useEffect(() => {

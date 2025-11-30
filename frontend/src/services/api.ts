@@ -1,7 +1,6 @@
 import axios from 'axios'
-import { useAuthStore } from '../store/authStore'
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8001'
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
@@ -13,9 +12,9 @@ export const api = axios.create({
 // Request interceptor to add auth token
 api.interceptors.request.use(
   (config) => {
-    const { accessToken } = useAuthStore.getState()
-    if (accessToken) {
-      config.headers.Authorization = `Bearer ${accessToken}`
+    const token = localStorage.getItem('accessToken')
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`
     }
     return config
   },
@@ -30,22 +29,12 @@ api.interceptors.response.use(
   async (error) => {
     if (error.response?.status === 401) {
       // Token expired, logout user
-      useAuthStore.getState().logout()
+      localStorage.removeItem('accessToken')
+      localStorage.removeItem('user')
       window.location.href = '/login'
     }
     return Promise.reject(error)
   }
 )
 
-
-
-
-
-
-
-
-
-
-
-
-
+export default api

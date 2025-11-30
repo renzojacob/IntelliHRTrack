@@ -25,8 +25,8 @@ function App() {
 
   // Check localStorage on mount
   React.useEffect(() => {
-    const token = localStorage.getItem('auth_token')
-    const userStr = localStorage.getItem('auth_user')
+    const token = localStorage.getItem('accessToken')
+    const userStr = localStorage.getItem('user')
     if (token && userStr) {
       useAuthStore.setState({
         isAuthenticated: true,
@@ -36,7 +36,7 @@ function App() {
     }
   }, [])
 
-  const isAdmin = user?.role && ['super_admin', 'hr_admin', 'payroll_admin', 'manager'].includes(user.role)
+  const isAdmin = user?.role && ['admin', 'super_admin', 'hr_admin', 'payroll_admin', 'manager'].includes(user.role)
 
   return (
     <Router>

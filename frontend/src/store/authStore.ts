@@ -31,9 +31,9 @@ export const useAuthStore = create<AuthState>((set) => ({
   accessToken: null,
   refreshToken: null,
   setAuth: (user, accessToken, refreshToken) => {
-    // Store in localStorage
-    localStorage.setItem('auth_token', accessToken)
-    localStorage.setItem('auth_user', JSON.stringify(user))
+    // Store in localStorage (standard keys used across services)
+    localStorage.setItem('accessToken', accessToken)
+    localStorage.setItem('user', JSON.stringify(user))
     set({
       isAuthenticated: true,
       user,
@@ -42,8 +42,8 @@ export const useAuthStore = create<AuthState>((set) => ({
     })
   },
   logout: () => {
-    localStorage.removeItem('auth_token')
-    localStorage.removeItem('auth_user')
+    localStorage.removeItem('accessToken')
+    localStorage.removeItem('user')
     set({
       isAuthenticated: false,
       user: null,
@@ -58,8 +58,8 @@ export const useAuthStore = create<AuthState>((set) => ({
 }))
 
 // Initialize from localStorage on app start
-const storedToken = localStorage.getItem('auth_token')
-const storedUser = localStorage.getItem('auth_user')
+const storedToken = localStorage.getItem('accessToken')
+const storedUser = localStorage.getItem('user')
 if (storedToken && storedUser) {
   useAuthStore.setState({
     isAuthenticated: true,

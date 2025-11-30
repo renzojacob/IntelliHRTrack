@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
-import { attendanceService } from '../../services/attendance.service'
+import { attendanceService, TodayAttendanceResponse } from '../../services/attendance.service'
 import { useAuthStore } from '../../store/authStore'
 import { ClockIcon, CameraIcon } from '@heroicons/react/24/outline'
 
@@ -12,7 +12,7 @@ export default function Attendance() {
   const [stream, setStream] = useState<MediaStream | null>(null)
   const queryClient = useQueryClient()
 
-  const { data: todayAttendance } = useQuery(
+  const { data: todayAttendance } = useQuery<TodayAttendanceResponse | undefined>(
     'today-attendance',
     () => attendanceService.getTodayAttendance(),
     { enabled: !!employeeId, refetchInterval: 5000 }
@@ -213,30 +213,35 @@ export default function Attendance() {
         <div className="glass-card">
           <h2 className="text-xl font-semibold mb-4">Today's Status</h2>
           {todayAttendance?.checked_in ? (
-            <div className="space-y-2">
-              <div className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-400">Check-in:</span>
-                <span className="font-semibold">
-                  {new Date(todayAttendance.attendance.check_in_time).toLocaleTimeString()}
-                </span>
-              </div>
-              {todayAttendance.checked_out && (
-                <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400">Check-out:</span>
-                  <span className="font-semibold">
-                    {new Date(todayAttendance.attendance.check_out_time).toLocaleTimeString()}
-                  </span>
+            (() => {
+              const checkInTime = todayAttendance.attendance?.check_in_time
+              const checkOutTime = todayAttendance.attendance?.check_out_time
+              const status = todayAttendance.attendance?.status
+              return (
+                <div className="space-y-2">
+                  <div className="flex justify-between">
+                    <span className="text-gray-600 dark:text-gray-400">Check-in:</span>
+                    <span className="font-semibold">
+                      {checkInTime ? new Date(checkInTime).toLocaleTimeString() : '-'}
+                    </span>
+                  </div>
+                  {todayAttendance.checked_out && (
+                    <div className="flex justify-between">
+                      <span className="text-gray-600 dark:text-gray-400">Check-out:</span>
+                      <span className="font-semibold">
+                        {checkOutTime ? new Date(checkOutTime).toLocaleTimeString() : '-'}
+                      </span>
+                    </div>
+                  )}
+                  <div className="flex justify-between">
+                    <span className="text-gray-600 dark:text-gray-400">Status:</span>
+                    <span className={`font-semibold ${status === 'late' ? 'text-red-600' : 'text-green-600'}`}>
+                      {status || 'On Time'}
+                    </span>
+                  </div>
                 </div>
-              )}
-              <div className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-400">Status:</span>
-                <span className={`font-semibold ${
-                  todayAttendance.attendance.status === 'late' ? 'text-red-600' : 'text-green-600'
-                }`}>
-                  {todayAttendance.attendance.status || 'On Time'}
-                </span>
-              </div>
-            </div>
+              )
+            })()
           ) : (
             <p className="text-gray-600 dark:text-gray-400">Not checked in yet</p>
           )}

@@ -34,8 +34,9 @@ interface LeaveRequest {
   leaveType: string;
   startDate: string;
   endDate: string;
+  // optional/usability helpers (some backends return formatted strings)
   dates?: string;
-  duration: number;
+  duration?: number | string;
   status: 'pending' | 'approved' | 'declined' | 'cancelled';
   reason: string;
   employeeId: string;
@@ -163,17 +164,41 @@ export default function Leaves() {
     },
   }
 
+  const calcDaysBetween = (s?: string, e?: string) => {
+    try {
+      if (!s || !e) return 0
+      const start = new Date(s)
+      const end = new Date(e)
+      const diff = Math.ceil((end.getTime() - start.getTime()) / (1000 * 3600 * 24)) + 1
+      return diff > 0 ? diff : 0
+    } catch {
+      return 0
+    }
+  }
+
+  // Build leave type chart data from server response (safe guards)
+  const leaveTypeLabels: string[] = (leaveData?.leaveTypes || []).map((lt: LeaveType) => lt.name)
+  const leaveTypeCounts: number[] = leaveTypeLabels.map((label) => {
+    const name = label.toLowerCase()
+    const requests = leaveData?.requests || []
+    const count = requests.reduce((acc: number, r: LeaveRequest) => {
+      const rt = (r.leaveType || '').toLowerCase()
+      if (rt === name) return acc + 1
+      if (rt.includes(name.split(' ')[0])) return acc + 1
+      if (name.includes(rt.split(' ')[0])) return acc + 1
+      return acc
+    }, 0)
+    return count
+  })
+
   const leaveTypeChartData = {
-    labels: leaveData?.leaveTypes?.map((lt: LeaveType) => lt.name) || [],
-    datasets: [{
-      data: [45, 28, 12, 15],
-      backgroundColor: [
-        'rgba(59, 130, 246, 0.8)',
-        'rgba(239, 68, 68, 0.8)',
-        'rgba(245, 158, 11, 0.8)',
-        'rgba(139, 92, 246, 0.8)',
-      ],
-    }],
+    labels: leaveTypeLabels,
+    datasets: [
+      {
+        data: leaveTypeCounts.length ? leaveTypeCounts : [0],
+        backgroundColor: ['rgba(59, 130, 246, 0.8)', 'rgba(239, 68, 68, 0.8)', 'rgba(245, 158, 11, 0.8)', 'rgba(139, 92, 246, 0.8)'],
+      },
+    ],
   }
 
   const leaveTrendChartData = {
@@ -387,7 +412,7 @@ export default function Leaves() {
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
                             <div className="text-sm">{req.dates}</div>
-                            <div className="text-xs text-gray-500">{req.duration} days</div>
+                            <div className="text-xs text-gray-500">{typeof req.duration === 'number' ? `${req.duration} days` : (req.duration || '')}</div>
                             <div className="text-xs text-gray-400">Submitted: {new Date(req.submittedAt).toLocaleDateString()}</div>
                           </td>
                           <td className="px-6 py-4">
@@ -706,7 +731,7 @@ export default function Leaves() {
               
               <div>
                 <label className="text-sm font-medium text-gray-500">Dates</label>
-                <p>{selectedRequest.dates} ({selectedRequest.duration} days)</p>
+                <p>{selectedRequest.dates} ({typeof selectedRequest.duration === 'number' ? `${selectedRequest.duration} days` : (selectedRequest.duration || '')})</p>
               </div>
               
               <div>

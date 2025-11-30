@@ -16,8 +16,18 @@ export default function Login() {
     setLoading(true)
 
     try {
-      await authService.login({ username, password })
-      // Navigation will happen automatically via App.tsx
+      const res = await authService.login({ username, password })
+      // Update global auth store so routes and UI react immediately
+      if (res?.access_token && res?.user) {
+        setAuth(res.user as any, res.access_token, (res as any).refresh_token || null)
+        // Navigate based on role
+        const role = (res.user as any).role
+        if (role === 'admin' || role === 'super_admin' || role === 'hr_admin' || role === 'payroll_admin' || role === 'manager') {
+          window.location.href = '/admin/dashboard'
+        } else {
+          window.location.href = '/employee/dashboard'
+        }
+      }
     } catch (err: any) {
       setError(err.response?.data?.detail || 'Login failed')
     } finally {

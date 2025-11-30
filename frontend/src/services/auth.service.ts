@@ -1,54 +1,69 @@
-import { api } from './api'
-import { useAuthStore } from '../store/authStore'
-
-export interface LoginCredentials {
-  username: string
-  password: string
-}
+import api from './api'
 
 export interface RegisterData {
-  username: string
-  email: string
-  password: string
-  employee_id: number
-  role?: string
+  username: string;
+  email: string;
+  password: string;
+  role: 'admin' | 'employee';
+  first_name: string;
+  last_name: string;
+  department: string;
 }
 
-export const authService = {
-  async login(credentials: LoginCredentials) {
-    const response = await api.post('/api/v1/auth/login', credentials)
-    const { access_token, refresh_token, user } = response.data
-    
-    useAuthStore.getState().setAuth(user, access_token, refresh_token)
-    
-    return response.data
-  },
+export interface LoginData {
+  username: string;
+  password: string;
+}
 
-  async logout() {
-    useAuthStore.getState().logout()
-  },
+export interface User {
+  id: number;
+  username: string;
+  email: string;
+  role: 'admin' | 'employee';
+  first_name: string;
+  last_name: string;
+  department: string;
+}
 
-  async getCurrentUser() {
-    const response = await api.get('/api/v1/auth/me')
-    useAuthStore.getState().updateUser(response.data)
-    return response.data
-  },
-
-  async register(data: RegisterData) {
+class AuthService {
+  async register(data: RegisterData): Promise<User> {
     const response = await api.post('/api/v1/auth/register', data)
     return response.data
-  },
+  }
+
+  async login(data: LoginData): Promise<{ access_token: string; token_type: string; user: User }> {
+    const formData = new URLSearchParams()
+    formData.append('username', data.username)
+    formData.append('password', data.password)
+    
+    const response = await api.post('/api/v1/auth/login', formData, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    })
+    
+    // Store token and user in localStorage
+    if (response.data.access_token) {
+      localStorage.setItem('accessToken', response.data.access_token)
+      localStorage.setItem('user', JSON.stringify(response.data.user))
+    }
+    
+    return response.data
+  }
+
+  logout(): void {
+    localStorage.removeItem('accessToken')
+    localStorage.removeItem('user')
+  }
+
+  getCurrentUser(): User | null {
+    const userStr = localStorage.getItem('user')
+    return userStr ? JSON.parse(userStr) : null
+  }
+
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('accessToken')
+  }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+export const authService = new AuthService()
