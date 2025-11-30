@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { authService } from '../services/auth.service'
 import { useAuthStore } from '../store/authStore'
 
@@ -118,6 +119,15 @@ export default function Login() {
             {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
+
+        <div className="mt-4 text-center">
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            Don't have an account?{' '}
+            <Link to="/signup" className="text-teal-600 font-medium hover:underline">
+              Sign up
+            </Link>
+          </p>
+        </div>
 
         {/* Demo Mode - Quick Access */}
         <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">

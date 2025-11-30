@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { useAuthStore } from './store/authStore'
 import Login from './pages/Login'
+import Signup from './pages/Signup'
 import AdminLayout from './layouts/AdminLayout'
 import EmployeeLayout from './layouts/EmployeeLayout'
 import AdminDashboard from './pages/admin/Dashboard'
@@ -35,16 +36,18 @@ function App() {
     }
   }, [])
 
-  if (!isAuthenticated) {
-    return <Login />
-  }
-
   const isAdmin = user?.role && ['super_admin', 'hr_admin', 'payroll_admin', 'manager'].includes(user.role)
 
   return (
     <Router>
       <Routes>
-        {isAdmin ? (
+        {!isAuthenticated ? (
+          <>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="*" element={<Navigate to="/login" replace />} />
+          </>
+        ) : isAdmin ? (
           <>
             <Route path="/admin/*" element={<AdminLayout />}>
               <Route path="dashboard" element={<AdminDashboard />} />
