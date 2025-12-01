@@ -4,6 +4,16 @@ from datetime import date
 from typing import List, Optional
 from app.models.leave import LeaveRequest, LeaveBalance, BlackoutPeriod, LeaveStatus
 from app.schemas.leave import LeaveRequestCreate, LeaveRequestUpdate
+from app.models.user import Employee, User
+from datetime import datetime
+
+# Provide a static list of leave types for now (no DB table required)
+LEAVE_TYPES = [
+    {"id": 1, "name": "Vacation Leave", "code": "VL", "maxDays": 15, "description": "Annual vacation leave"},
+    {"id": 2, "name": "Sick Leave", "code": "SL", "maxDays": 10, "description": "Medical and health related"},
+    {"id": 3, "name": "Personal Days", "code": "PD", "maxDays": 5, "description": "Personal emergency leave"},
+    {"id": 4, "name": "Emergency Leave", "code": "EL", "maxDays": 5, "description": "Emergency leave"},
+]
 
 def create_leave_request(db: Session, leave_request: LeaveRequestCreate, employee_id: int):
     # Calculate duration
@@ -65,52 +75,14 @@ def get_leave_requests_by_employee(db: Session, employee_id: int, skip: int = 0,
     ]
 
 def get_all_leave_requests(db: Session, skip: int = 0, limit: int = 100):
-    leaves = db.query(LeaveRequest).order_by(LeaveRequest.submitted_at.desc()).offset(skip).limit(limit).all()
-    
-    # Convert to list of dictionaries
-    return [
-        {
-            "id": leave.id,
-            "employee_id": leave.employee_id,
-            "leave_type": leave.leave_type,
-            "start_date": leave.start_date,
-            "end_date": leave.end_date,
-            "reason": leave.reason,
-            "status": leave.status,
-            "duration": leave.duration,
-            "submitted_at": leave.submitted_at,
-            "approved_by": leave.approved_by,
-            "approved_at": leave.approved_at,
-            "remarks": leave.remarks,
-            "employee": None
-        }
-        for leave in leaves
-    ]
+    # Use the enriched representation so admin views have employee info populated
+    return get_all_leave_requests_enriched(db, skip=skip, limit=limit)
 
 def get_pending_leave_requests(db: Session, skip: int = 0, limit: int = 100):
-    leaves = db.query(LeaveRequest).filter(
-        LeaveRequest.status == LeaveStatus.PENDING
-    ).order_by(LeaveRequest.submitted_at.desc()).offset(skip).limit(limit).all()
-    
-    # Convert to list of dictionaries
-    return [
-        {
-            "id": leave.id,
-            "employee_id": leave.employee_id,
-            "leave_type": leave.leave_type,
-            "start_date": leave.start_date,
-            "end_date": leave.end_date,
-            "reason": leave.reason,
-            "status": leave.status,
-            "duration": leave.duration,
-            "submitted_at": leave.submitted_at,
-            "approved_by": leave.approved_by,
-            "approved_at": leave.approved_at,
-            "remarks": leave.remarks,
-            "employee": None
-        }
-        for leave in leaves
-    ]
+    # Reuse the enriched listing and filter for pending status
+    all_enriched = get_all_leave_requests_enriched(db, skip=skip, limit=limit)
+    pending = [r for r in all_enriched if r.get("status") == LeaveStatus.PENDING]
+    return pending
 
 def get_leave_request_by_id(db: Session, leave_id: int):
     return db.query(LeaveRequest).filter(LeaveRequest.id == leave_id).first()
@@ -128,6 +100,21 @@ def update_leave_request_status(db: Session, leave_id: int, leave_update: LeaveR
         db.refresh(db_leave)
         
         # Return dictionary
+        # Enrich employee info if available
+        emp = db.query(Employee).filter(Employee.id == db_leave.employee_id).first()
+        user = None
+        if emp:
+            user = db.query(User).filter(User.id == emp.user_id).first()
+
+        employee_name = None
+        department = None
+        employee_code = None
+        if emp:
+            employee_code = emp.employee_id
+            department = emp.department
+        if user:
+            employee_name = f"{user.username}" if not (getattr(emp, 'first_name', None) and getattr(emp, 'last_name', None)) else f"{emp.first_name} {emp.last_name}"
+
         return {
             "id": db_leave.id,
             "employee_id": db_leave.employee_id,
@@ -141,7 +128,7 @@ def update_leave_request_status(db: Session, leave_id: int, leave_update: LeaveR
             "approved_by": db_leave.approved_by,
             "approved_at": db_leave.approved_at,
             "remarks": db_leave.remarks,
-            "employee": None
+            "employee": {"name": employee_name, "department": department, "employee_id": employee_code},
         }
     return None
 
@@ -202,3 +189,90 @@ def get_blackout_periods(db: Session):
         }
         for period in periods
     ]
+
+
+def get_all_leave_requests_enriched(db: Session, skip: int = 0, limit: int = 100):
+    # Join LeaveRequest -> Employee -> User to enrich response with employee info
+    leaves = (
+        db.query(LeaveRequest)
+        .order_by(LeaveRequest.submitted_at.desc())
+        .offset(skip)
+        .limit(limit)
+        .all()
+    )
+
+    enriched = []
+    for leave in leaves:
+        emp = db.query(Employee).filter(Employee.id == leave.employee_id).first()
+        user = None
+        if emp:
+            user = db.query(User).filter(User.id == emp.user_id).first()
+
+        employee_name = None
+        department = None
+        employee_code = None
+        if emp:
+            employee_code = emp.employee_id
+            department = emp.department
+        if user:
+            employee_name = f"{user.username}" if not (getattr(emp, 'first_name', None) and getattr(emp, 'last_name', None)) else f"{emp.first_name} {emp.last_name}"
+
+        enriched.append({
+            "id": leave.id,
+            "employee_id": leave.employee_id,
+            "employee": {"name": employee_name, "department": department, "employee_id": employee_code},
+            "leave_type": leave.leave_type,
+            "start_date": leave.start_date,
+            "end_date": leave.end_date,
+            "reason": leave.reason,
+            "status": leave.status,
+            "duration": leave.duration,
+            "submitted_at": leave.submitted_at,
+            "approved_by": leave.approved_by,
+            "approved_at": leave.approved_at,
+            "remarks": leave.remarks,
+        })
+
+    return enriched
+
+
+def get_admin_dashboard(db: Session):
+    today = datetime.utcnow().date()
+
+    total_pending = db.query(LeaveRequest).filter(LeaveRequest.status == LeaveStatus.PENDING).count()
+
+    # onLeaveToday: count approved leaves that include today
+    on_leave_today = (
+        db.query(LeaveRequest)
+        .filter(
+            LeaveRequest.status == LeaveStatus.APPROVED,
+            LeaveRequest.start_date <= today,
+            LeaveRequest.end_date >= today,
+        )
+        .count()
+    )
+
+    # upcoming expirations - placeholder: count of leaves ending within next 30 days
+    from datetime import timedelta
+    upcoming_threshold = today + timedelta(days=30)
+    upcoming_expirations = (
+        db.query(LeaveRequest)
+        .filter(LeaveRequest.end_date >= today, LeaveRequest.end_date <= upcoming_threshold)
+        .count()
+    )
+
+    # policy violations - placeholder 0 for now
+    policy_violations = 0
+
+    requests = get_all_leave_requests_enriched(db)
+    blackout_periods = get_blackout_periods(db)
+
+    return {
+        "pendingApprovals": total_pending,
+        "onLeaveToday": on_leave_today,
+        "policyViolations": policy_violations,
+        "upcomingExpirations": upcoming_expirations,
+        "leaveTypes": LEAVE_TYPES,
+        "requests": requests,
+        "blackoutPeriods": blackout_periods,
+    }

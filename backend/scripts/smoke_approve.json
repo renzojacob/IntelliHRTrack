@@ -1,0 +1,19 @@
+﻿{
+    "leave_type":  "vacation",
+    "start_date":  "2025-12-08",
+    "end_date":  "2025-12-10",
+    "reason":  "Smoke test leave",
+    "id":  5,
+    "employee_id":  6,
+    "status":  "approved",
+    "duration":  3,
+    "submitted_at":  "2025-12-01T05:17:07",
+    "approved_by":  4,
+    "approved_at":  "2025-12-01T00:00:00",
+    "remarks":  "Approved by smoke test",
+    "employee":  {
+                     "name":  "Smoke Tester",
+                     "department":  "QA",
+                     "employee_id":  "EMP-0006"
+                 }
+}

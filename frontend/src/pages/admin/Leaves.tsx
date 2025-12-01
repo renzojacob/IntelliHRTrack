@@ -68,7 +68,7 @@ export default function Leaves() {
   // Fetch leave data
   const { data: leaveData, refetch } = useQuery('admin-leaves', async () => {
     try {
-      const response = await api.get('/api/v1/admin/leaves')
+      const response = await api.get('/api/v1/leaves/admin/dashboard')
       return response.data
     } catch {
       // Fallback mock data
@@ -120,13 +120,15 @@ export default function Leaves() {
     }
   })
 
-  // Mutation for approving/denying leave
-  const processLeaveMutation = useMutation(async ({ requestId, action, remarks }: { 
-    requestId: string; 
-    action: 'approve' | 'deny'; 
-    remarks?: string 
+  // Mutation for approving/denying leave (calls backend `/api/v1/leaves/admin/{id}/status`)
+  const processLeaveMutation = useMutation(async ({ requestId, action, remarks }: {
+    requestId: string;
+    action: 'approve' | 'deny';
+    remarks?: string
   }) => {
-    const response = await api.post(`/api/v1/admin/leaves/${requestId}/${action}`, { remarks })
+    const status = action === 'approve' ? 'approved' : 'declined'
+    const payload = { status, remarks }
+    const response = await api.put(`/api/v1/leaves/admin/${requestId}/status`, payload)
     return response.data
   }, {
     onSuccess: () => {
@@ -136,24 +138,13 @@ export default function Leaves() {
   })
 
   const handleApprove = (request: LeaveRequest) => {
-    setSelectedRequest(request)
-    // In actual implementation, call mutation directly
-    // processLeaveMutation.mutate({ requestId: request.id, action: 'approve' })
+    // directly call the mutation to approve
+    processLeaveMutation.mutate({ requestId: request.id, action: 'approve' })
   }
 
   const handleDeny = (request: LeaveRequest) => {
-    setSelectedRequest(request)
-    // processLeaveMutation.mutate({ requestId: request.id, action: 'deny' })
-  }
-
-  const confirmAction = (action: 'approve' | 'deny', remarks?: string) => {
-    if (selectedRequest) {
-      processLeaveMutation.mutate({ 
-        requestId: selectedRequest.id, 
-        action, 
-        remarks 
-      })
-    }
+    // directly call the mutation to decline
+    processLeaveMutation.mutate({ requestId: request.id, action: 'deny' })
   }
 
   const chartOptions = {
@@ -747,13 +738,13 @@ export default function Leaves() {
               {selectedRequest.status === 'pending' && (
                 <div className="flex gap-3 pt-4">
                   <button
-                    onClick={() => confirmAction('approve')}
+                    onClick={() => selectedRequest && handleApprove(selectedRequest)}
                     className="flex-1 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg transition"
                   >
                     Approve
                   </button>
                   <button
-                    onClick={() => confirmAction('deny')}
+                    onClick={() => selectedRequest && handleDeny(selectedRequest)}
                     className="flex-1 px-4 py-2 bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition"
                   >
                     Deny

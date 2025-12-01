@@ -1,0 +1,98 @@
+﻿{
+    "pendingApprovals":  1,
+    "onLeaveToday":  0,
+    "policyViolations":  0,
+    "upcomingExpirations":  2,
+    "leaveTypes":  [
+                       {
+                           "id":  1,
+                           "name":  "Vacation Leave",
+                           "code":  "VL",
+                           "maxDays":  15,
+                           "description":  "Annual vacation leave"
+                       },
+                       {
+                           "id":  2,
+                           "name":  "Sick Leave",
+                           "code":  "SL",
+                           "maxDays":  10,
+                           "description":  "Medical and health related"
+                       },
+                       {
+                           "id":  3,
+                           "name":  "Personal Days",
+                           "code":  "PD",
+                           "maxDays":  5,
+                           "description":  "Personal emergency leave"
+                       },
+                       {
+                           "id":  4,
+                           "name":  "Emergency Leave",
+                           "code":  "EL",
+                           "maxDays":  5,
+                           "description":  "Emergency leave"
+                       }
+                   ],
+    "requests":  [
+                     {
+                         "id":  3,
+                         "employee_id":  2,
+                         "employee":  {
+                                          "name":  "John Doe",
+                                          "department":  "Engineering",
+                                          "employee_id":  "EMP-0002"
+                                      },
+                         "leave_type":  "vacation",
+                         "start_date":  "2025-12-10",
+                         "end_date":  "2025-12-12",
+                         "reason":  "Family trip",
+                         "status":  "approved",
+                         "duration":  3,
+                         "submitted_at":  "2025-12-01T03:31:04",
+                         "approved_by":  4,
+                         "approved_at":  "2025-12-01T00:00:00",
+                         "remarks":  "Approved by admin via UI/test"
+                     },
+                     {
+                         "id":  2,
+                         "employee_id":  1,
+                         "employee":  {
+                                          "name":  "Test Admin",
+                                          "department":  "Management",
+                                          "employee_id":  "EMP-0001"
+                                      },
+                         "leave_type":  "vacation_leave",
+                         "start_date":  "2025-12-02",
+                         "end_date":  "2025-12-02",
+                         "reason":  "NILAGNAT SI ANGEL KRIS RONQUILLO",
+                         "status":  "approved",
+                         "duration":  5,
+                         "submitted_at":  "2025-11-30T22:44:38",
+                         "approved_by":  4,
+                         "approved_at":  "2025-12-01T00:00:00",
+                         "remarks":  "Approved by admin via script"
+                     },
+                     {
+                         "id":  1,
+                         "employee_id":  2,
+                         "employee":  {
+                                          "name":  "John Doe",
+                                          "department":  "Engineering",
+                                          "employee_id":  "EMP-0002"
+                                      },
+                         "leave_type":  "vacation",
+                         "start_date":  "2024-06-01",
+                         "end_date":  "2024-06-05",
+                         "reason":  "Family vacation",
+                         "status":  "pending",
+                         "duration":  5,
+                         "submitted_at":  "2025-11-30T17:14:47",
+                         "approved_by":  null,
+                         "approved_at":  null,
+                         "remarks":  null
+                     }
+                 ],
+    "blackoutPeriods":  [
+
+                        ]
+}

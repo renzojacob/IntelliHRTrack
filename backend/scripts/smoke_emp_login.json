@@ -1,0 +1,13 @@
+﻿{
+    "access_token":  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzbW9rZV9lbXAiLCJleHAiOjE3NjQ1NjgwMjd9.OiIxriZYGKRFAWNWaaFFLWrzoiPSinianPfheO6bS5w",
+    "token_type":  "bearer",
+    "user":  {
+                 "username":  "smoke_emp",
+                 "email":  "smoke_emp@example.com",
+                 "role":  "employee",
+                 "id":  6,
+                 "is_active":  true,
+                 "created_at":  "2025-12-01T05:16:43",
+                 "employee":  null
+             }
+}

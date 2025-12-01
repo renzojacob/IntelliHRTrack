@@ -1,0 +1,17 @@
+﻿{
+    "username":  "smoke_emp",
+    "email":  "smoke_emp@example.com",
+    "role":  "employee",
+    "id":  6,
+    "is_active":  true,
+    "created_at":  "2025-12-01T05:16:43",
+    "employee":  {
+                     "id":  6,
+                     "employee_id":  "EMP-0006",
+                     "first_name":  "Smoke",
+                     "last_name":  "Tester",
+                     "email":  "smoke_emp@example.com",
+                     "department":  "QA",
+                     "position":  "Employee"
+                 }
+}

@@ -1,0 +1,19 @@
+﻿{
+    "leave_type":  "vacation",
+    "start_date":  "2024-06-01",
+    "end_date":  "2024-06-05",
+    "reason":  "Family vacation",
+    "id":  1,
+    "employee_id":  2,
+    "status":  "approved",
+    "duration":  5,
+    "submitted_at":  "2025-11-30T17:14:47",
+    "approved_by":  4,
+    "approved_at":  "2025-12-01T00:00:00",
+    "remarks":  "Approved by automated script",
+    "employee":  {
+                     "name":  "John Doe",
+                     "department":  "Engineering",
+                     "employee_id":  "EMP-0002"
+                 }
+}

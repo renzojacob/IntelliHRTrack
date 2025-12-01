@@ -1,0 +1,15 @@
+﻿{
+    "leave_type":  "vacation",
+    "start_date":  "2025-12-08",
+    "end_date":  "2025-12-10",
+    "reason":  "Smoke test leave",
+    "id":  5,
+    "employee_id":  6,
+    "status":  "pending",
+    "duration":  3,
+    "submitted_at":  "2025-12-01T05:17:07",
+    "approved_by":  null,
+    "approved_at":  null,
+    "remarks":  null,
+    "employee":  null
+}
