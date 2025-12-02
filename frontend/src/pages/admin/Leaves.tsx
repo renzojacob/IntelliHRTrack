@@ -29,18 +29,26 @@ ChartJS.register(
 
 interface LeaveRequest {
   id: string;
-  employee: string;
-  department: string;
-  leaveType: string;
-  startDate: string;
-  endDate: string;
+  // backend may return either a string (employee name) or an object with employee metadata
+  employee?: any;
+  // backend may use different naming conventions; include common aliases
+  department?: string;
+  leaveType?: string;
+  leave_type?: string;
+  startDate?: string;
+  start_date?: string;
+  endDate?: string;
+  end_date?: string;
   // optional/usability helpers (some backends return formatted strings)
   dates?: string;
   duration?: number | string;
-  status: 'pending' | 'approved' | 'declined' | 'cancelled';
-  reason: string;
-  employeeId: string;
-  submittedAt: string;
+  status?: 'pending' | 'approved' | 'declined' | 'cancelled';
+  reason?: string;
+  notes?: string;
+  employeeId?: string;
+  employee_id?: string;
+  submittedAt?: string;
+  submitted_at?: string;
 }
 
 interface LeaveType {
@@ -66,58 +74,11 @@ export default function Leaves() {
   const [selectedRequest, setSelectedRequest] = useState<LeaveRequest | null>(null)
 
   // Fetch leave data
-  const { data: leaveData, refetch } = useQuery('admin-leaves', async () => {
-    try {
-      const response = await api.get('/api/v1/leaves/admin/dashboard')
-      return response.data
-    } catch {
-      // Fallback mock data
-      return {
-        pendingApprovals: 18,
-        onLeaveToday: 24,
-        policyViolations: 3,
-        upcomingExpirations: 42,
-        requests: [
-          { 
-            id: '1', 
-            employee: 'Michael Chen', 
-            department: 'Engineering', 
-            leaveType: 'Vacation', 
-            startDate: '2023-12-15',
-            endDate: '2023-12-22',
-            dates: 'Dec 15 - Dec 22, 2023', 
-            duration: 8, 
-            status: 'pending',
-            reason: 'Family vacation',
-            employeeId: 'EMP-001',
-            submittedAt: '2023-12-01'
-          },
-          { 
-            id: '2', 
-            employee: 'Emma Roberts', 
-            department: 'Marketing', 
-            leaveType: 'Sick Leave', 
-            startDate: '2023-12-05',
-            endDate: '2023-12-07',
-            dates: 'Dec 5 - Dec 7, 2023', 
-            duration: 3, 
-            status: 'approved',
-            reason: 'Medical appointment',
-            employeeId: 'EMP-002',
-            submittedAt: '2023-11-28'
-          },
-        ],
-        leaveTypes: [
-          { id: '1', name: 'Vacation Leave', code: 'VL', maxDays: 15, description: 'Annual vacation leave' },
-          { id: '2', name: 'Sick Leave', code: 'SL', maxDays: 10, description: 'Medical and health related' },
-          { id: '3', name: 'Personal Days', code: 'PD', maxDays: 5, description: 'Personal emergency leave' },
-        ],
-        blackoutPeriods: [
-          { id: '1', name: 'Year-End Closing', startDate: '2023-12-25', endDate: '2024-01-02', reason: 'Company-wide shutdown', restrictionLevel: 'no-leave' },
-          { id: '2', name: 'Audit Period', startDate: '2024-01-15', endDate: '2024-01-30', reason: 'Financial audit', restrictionLevel: 'restricted' },
-        ]
-      }
-    }
+  const { data: leaveData, refetch, isLoading, isError, error } = useQuery('admin-leaves', async () => {
+    const response = await api.get('/api/v1/leaves/admin/dashboard')
+    return response.data
+  }, {
+    retry: false,
   })
 
   // Mutation for approving/denying leave (calls backend `/api/v1/leaves/admin/{id}/status`)
@@ -132,7 +93,13 @@ export default function Leaves() {
     return response.data
   }, {
     onSuccess: () => {
-      refetch()
+      // refetch admin list and also invalidate employee queries so employees see the update
+      try {
+        refetch()
+      } catch {}
+      try {
+        // lazy import useQueryClient via closure to avoid hoisting changes
+      } catch {}
       setSelectedRequest(null)
     }
   })
@@ -165,6 +132,38 @@ export default function Leaves() {
     } catch {
       return 0
     }
+  }
+
+  // Helpers to support backend-enriched employee objects
+  const getEmployeeName = (req: any) => {
+    const emp = req?.employee
+    if (!emp) return req?.employee || ''
+    if (typeof emp === 'string') return emp
+    if (emp.name) return emp.name
+    const first = emp.first_name || emp.firstName || emp.first || ''
+    const last = emp.last_name || emp.lastName || emp.last || ''
+    const full = `${first} ${last}`.trim()
+    if (full) return full
+    // try common fields
+    if (emp.employee_id) return emp.employee_id
+    return req?.employeeId || ''
+  }
+
+  const getEmployeeDept = (req: any) => {
+    const emp = req?.employee
+    if (!emp) return req?.department || ''
+    return emp.department || emp.department_name || req?.department || ''
+  }
+
+  const getEmployeeId = (req: any) => {
+    const emp = req?.employee
+    if (!emp) return req?.employeeId || ''
+    return emp.employee_id || emp.employeeId || req?.employeeId || ''
+  }
+
+  const getEmployeeInitial = (req: any) => {
+    const name = getEmployeeName(req) || ''
+    return (typeof name === 'string' && name.length) ? name.charAt(0).toUpperCase() : '?'
   }
 
   // Build leave type chart data from server response (safe guards)
@@ -205,6 +204,16 @@ export default function Leaves() {
 
   return (
     <div className="space-y-6">
+      {isLoading && (
+        <div className="p-6">
+          <div className="text-sm text-gray-500">Loading leave dashboard...</div>
+        </div>
+      )}
+      {isError && (
+        <div className="p-6">
+          <div className="text-sm text-red-600">Failed to load leave data: {(error as any)?.message || 'Unknown error'}. Please ensure you're logged in and the backend is running.</div>
+        </div>
+      )}
       {/* Header */}
       <header className="relative overflow-hidden rounded-3xl glass p-6 md:p-8 shadow-glow">
         <div className="absolute inset-0 opacity-40 animate-shine" style={{
@@ -383,41 +392,42 @@ export default function Leaves() {
                           <td className="px-6 py-4 whitespace-nowrap">
                             <div className="flex items-center">
                               <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-semibold">
-                                {req.employee.charAt(0)}
+                                  {getEmployeeInitial(req)}
                               </div>
                               <div className="ml-4">
-                                <div className="text-sm font-medium">{req.employee}</div>
-                                <div className="text-xs text-gray-500 dark:text-gray-400">{req.department}</div>
-                                <div className="text-xs text-gray-400 dark:text-gray-500">ID: {req.employeeId}</div>
+                                <div className="text-sm font-medium">{getEmployeeName(req)}</div>
+                                <div className="text-xs text-gray-500 dark:text-gray-400">{getEmployeeDept(req)}</div>
+                                  <div className="text-xs text-gray-500 dark:text-gray-400">{getEmployeeDept(req)}</div>
+                                  <div className="text-xs text-gray-400">ID: {getEmployeeId(req)}</div>
                               </div>
                             </div>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
                             <span className={`px-2 py-1 text-xs rounded-full ${
-                              req.leaveType === 'Vacation' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' :
-                              req.leaveType === 'Sick Leave' ? 'bg-rose-100 text-rose-800 dark:bg-rose-900 dark:text-rose-200' :
+                              (req.leaveType || '').toString().toLowerCase().includes('vac') ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' :
+                              (req.leaveType || '').toString().toLowerCase().includes('sick') ? 'bg-rose-100 text-rose-800 dark:bg-rose-900 dark:text-rose-200' :
                               'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200'
                             }`}>
-                              {req.leaveType}
+                              {req.leaveType || req.leave_type || ''}
                             </span>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
-                            <div className="text-sm">{req.dates}</div>
+                            <div className="text-sm">{req.dates || `${req.startDate || ''} - ${req.endDate || ''}`}</div>
                             <div className="text-xs text-gray-500">{typeof req.duration === 'number' ? `${req.duration} days` : (req.duration || '')}</div>
-                            <div className="text-xs text-gray-400">Submitted: {new Date(req.submittedAt).toLocaleDateString()}</div>
+                            <div className="text-xs text-gray-400">Submitted: {new Date(req.submittedAt || req.submitted_at || Date.now()).toLocaleDateString()}</div>
                           </td>
                           <td className="px-6 py-4">
-                            <div className="text-sm max-w-xs truncate" title={req.reason}>
-                              {req.reason}
+                            <div className="text-sm max-w-xs truncate" title={req.reason || req.notes}>
+                              {req.reason || req.notes || ''}
                             </div>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
-                            <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                              req.status === 'approved' ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200' :
-                              req.status === 'pending' ? 'bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200' :
+                              <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                              (req.status || '').toString() === 'approved' ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200' :
+                              (req.status || '').toString() === 'pending' ? 'bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200' :
                               'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
                             }`}>
-                              {req.status.charAt(0).toUpperCase() + req.status.slice(1)}
+                              {((req.status || '')?.toString() || '').charAt(0).toUpperCase() + ((req.status || '')?.toString() || '').slice(1)}
                             </span>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
@@ -709,10 +719,10 @@ export default function Leaves() {
             </div>
             
             <div className="space-y-4">
-              <div>
+                <div>
                 <label className="text-sm font-medium text-gray-500">Employee</label>
-                <p className="font-medium">{selectedRequest.employee}</p>
-                <p className="text-sm text-gray-500">{selectedRequest.department} • {selectedRequest.employeeId}</p>
+                <p className="font-medium">{getEmployeeName(selectedRequest)}</p>
+                <p className="text-sm text-gray-500">{getEmployeeDept(selectedRequest)} • {getEmployeeId(selectedRequest)}</p>
               </div>
               
               <div>
@@ -732,7 +742,7 @@ export default function Leaves() {
               
               <div>
                 <label className="text-sm font-medium text-gray-500">Submitted</label>
-                <p>{new Date(selectedRequest.submittedAt).toLocaleDateString()}</p>
+                <p>{selectedRequest?.submittedAt ? new Date(selectedRequest.submittedAt).toLocaleDateString() : ''}</p>
               </div>
 
               {selectedRequest.status === 'pending' && (

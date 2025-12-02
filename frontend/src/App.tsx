@@ -36,7 +36,13 @@ function App() {
     }
   }, [])
 
-  const isAdmin = user?.role && ['admin', 'super_admin', 'hr_admin', 'payroll_admin', 'manager'].includes(user.role)
+  const roleStr = String(user?.role || '').toLowerCase()
+  const isAdmin = !!user?.role && (
+    roleStr.includes('admin') ||
+    roleStr.includes('hr') ||
+    roleStr.includes('manager') ||
+    roleStr.includes('payroll')
+  )
 
   return (
     <Router>

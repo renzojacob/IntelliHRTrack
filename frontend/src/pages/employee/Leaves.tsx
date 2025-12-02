@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useQuery } from 'react-query'
-import { api } from '../../services/api'
+import { useQuery, useMutation, useQueryClient } from 'react-query'
+import { leaveService } from '../../services/leave.service'
 
 interface LeaveRequest {
   id: string;
@@ -42,59 +42,36 @@ export default function EmployeeLeaves() {
   const [currentTime, setCurrentTime] = useState('');
   const [isOnline, setIsOnline] = useState(true);
 
-  // Mock data - replace with actual API calls
-  const [leaveRequests, setLeaveRequests] = useState<LeaveRequest[]>([
-    {
-      id: '1',
-      type: 'Vacation Leave',
-      startDate: '2023-12-20',
-      endDate: '2023-12-23',
-      dates: 'Dec 20 - 23, 2023',
-      duration: '4 days',
-      status: 'pending',
-      reason: 'Family vacation',
-      approver: 'Sarah Johnson',
-      submittedAt: '2023-12-01'
-    },
-    {
-      id: '2',
-      type: 'Sick Leave',
-      startDate: '2023-11-15',
-      endDate: '2023-11-15',
-      dates: 'Nov 15, 2023',
-      duration: '1 day',
-      status: 'approved',
-      reason: 'Medical appointment',
-      approver: 'Sarah Johnson',
-      submittedAt: '2023-11-10'
-    }
-  ]);
+  // Server-driven data and local normalized state
+  const queryClient = useQueryClient()
 
-  const [leaveBalances, setLeaveBalances] = useState<LeaveBalance[]>([
-    { type: 'Vacation Leave', total: 15, used: 9, remaining: 6, maxDays: 15 },
-    { type: 'Sick Leave', total: 10, used: 3, remaining: 7, maxDays: 10 },
-    { type: 'Emergency Leave', total: 5, used: 1, remaining: 4, maxDays: 5 },
-    { type: 'Personal Days', total: 5, used: 2, remaining: 3, maxDays: 5 }
-  ]);
-
-  const [blackoutPeriods, setBlackoutPeriods] = useState<BlackoutPeriod[]>([
-    {
-      id: '1',
-      name: 'Year-End Closing',
-      startDate: '2023-12-25',
-      endDate: '2024-01-02',
-      reason: 'Company-wide shutdown',
-      restrictionLevel: 'no-leave'
-    },
-    {
-      id: '2',
-      name: 'Audit Period',
-      startDate: '2024-01-15',
-      endDate: '2024-01-30',
-      reason: 'Financial audit',
-      restrictionLevel: 'restricted'
+  const { data: myLeavesData, isLoading: leavesLoading, isError: leavesError } = useQuery('my-leaves', async () => {
+    try {
+      return await leaveService.getMyLeaves()
+    } catch {
+      return null
     }
-  ]);
+  }, { retry: false })
+
+  const { data: balanceData } = useQuery('my-leave-balance', async () => {
+    try {
+      return await leaveService.getMyLeaveBalance()
+    } catch {
+      return null
+    }
+  }, { retry: false })
+
+  const { data: blackoutData } = useQuery('blackout-periods', async () => {
+    try {
+      return await leaveService.getBlackoutPeriods()
+    } catch {
+      return null
+    }
+  }, { retry: false })
+
+  const [leaveRequests, setLeaveRequests] = useState<LeaveRequest[]>([])
+  const [leaveBalances, setLeaveBalances] = useState<LeaveBalance[]>([])
+  const [blackoutPeriods, setBlackoutPeriods] = useState<BlackoutPeriod[]>([])
 
   // Initialize clock
   useEffect(() => {
@@ -121,16 +98,6 @@ export default function EmployeeLeaves() {
     }
   }
 
-  // Fetch user's leaves from backend; fall back to mock data on error
-  const { data: myLeavesData } = useQuery('my-leaves', async () => {
-    try {
-      const res = await api.get('/api/v1/leaves')
-      return res.data
-    } catch (err) {
-      return null
-    }
-  }, { retry: false })
-
   // Normalize server data (if present) into UI shape
   useEffect(() => {
     if (!myLeavesData) return
@@ -156,8 +123,17 @@ export default function EmployeeLeaves() {
       }
     })
 
-    if (normalized.length) setLeaveRequests(normalized)
+    setLeaveRequests(normalized)
   }, [myLeavesData])
+
+  // Populate balances and blackout periods from server responses
+  useEffect(() => {
+    if (Array.isArray(balanceData)) setLeaveBalances(balanceData)
+  }, [balanceData])
+
+  useEffect(() => {
+    if (Array.isArray(blackoutData)) setBlackoutPeriods(blackoutData)
+  }, [blackoutData])
 
   // Network status
   useEffect(() => {
@@ -221,36 +197,41 @@ export default function EmployeeLeaves() {
     return Math.ceil(timeDiff / (1000 * 3600 * 24)) + 1;
   };
 
-  const handleSubmitLeave = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (validateLeaveRequest()) {
-      const newRequest: LeaveRequest = {
-        id: Date.now().toString(),
-        type: leaveType,
-        startDate,
-        endDate,
-        dates: `${new Date(startDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${new Date(endDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`,
-        duration: `${calculateDaysRequested()} days`,
-        status: 'pending',
-        reason,
-        approver: 'Pending Assignment',
-        submittedAt: new Date().toISOString()
-      };
-
-      setLeaveRequests(prev => [newRequest, ...prev]);
-      
-      // Reset form
-      setLeaveType('');
-      setStartDate('');
-      setEndDate('');
-      setDuration('full');
-      setReason('');
-      setValidationErrors([]);
-      
-      alert('Leave request submitted successfully!');
+  const applyMutation = useMutation(async (payload: any) => {
+    return await leaveService.applyForLeave(payload)
+  }, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('my-leaves')
+      queryClient.invalidateQueries('admin-leaves')
+      setLeaveType('')
+      setStartDate('')
+      setEndDate('')
+      setDuration('full')
+      setReason('')
+      setValidationErrors([])
+      alert('Leave request submitted successfully')
+    },
+    onError: (err: any) => {
+      console.error('apply error', err)
+      alert('Failed to submit leave request')
     }
-  };
+  })
+
+  const handleSubmitLeave = (e: React.FormEvent) => {
+    e.preventDefault()
+
+    if (!validateLeaveRequest()) return
+
+    const payload = {
+      leave_type: leaveType,
+      start_date: startDate,
+      end_date: endDate,
+      reason,
+      duration: duration === 'full' ? 'full' : duration // optional
+    }
+
+    applyMutation.mutate(payload)
+  }
 
   const handleCancelRequest = (id: string, type: string, dates: string) => {
     if (confirm(`Are you sure you want to cancel your ${type} for ${dates}?`)) {
@@ -511,8 +492,9 @@ export default function EmployeeLeaves() {
                   <button 
                     type="submit"
                     className="flex-1 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-xl font-medium transition-all relative overflow-hidden"
+                    disabled={applyMutation?.isLoading}
                   >
-                    Submit Leave Request
+                    {applyMutation?.isLoading ? 'Submitting...' : 'Submit Leave Request'}
                   </button>
                   <button 
                     type="button"
@@ -567,7 +549,7 @@ export default function EmployeeLeaves() {
                             {request.reason}
                           </p>
                           <p className="text-xs text-gray-400 dark:text-gray-500">
-                            Submitted: {new Date(request.submittedAt).toLocaleDateString()} • 
+                            Submitted: {request.submittedAt ? new Date(request.submittedAt).toLocaleDateString() : ''} • 
                             Approver: {request.approver}
                           </p>
                         </div>
