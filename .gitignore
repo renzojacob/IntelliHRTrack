@@ -1,0 +1,50 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+env/
+new_env/
+.venv/
+venv/
+ENV/
+.env
+/.mypy_cache/
+/.pytest_cache/
+
+# Byte-compiled / optimized / DLL files
+*.pyc
+*.pyd
+*.pyo
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Node
+node_modules/
+dist/
+/.parcel-cache/
+
+# Visual Studio Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# local IDE files
+*.suo
+*.user
+*.userosscache
+*.sln
+
+# Database
+*.db
+
+# Ignore OS generated files
+Thumbs.db
