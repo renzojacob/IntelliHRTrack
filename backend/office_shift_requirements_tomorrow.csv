@@ -1,0 +1,15 @@
+shift,role,required_count
+Morning,Software Engineer,8
+Morning,QA Engineer,3
+Morning,DevOps,2
+Morning,HR Generalist,1
+Morning,Accountant,2
+Morning,Sales Rep,6
+Morning,Content Specialist,2
+Morning,Support Agent,8
+Remote,Software Engineer,5
+Remote,QA Engineer,2
+Remote,Account Manager,2
+Remote,Support Agent,4
+Afternoon,Sales Rep,3
+Afternoon,Support Agent,2

@@ -11,3 +11,15 @@ pydantic-settings==2.1.0
 anyio==3.7.1
 watchfiles==0.21.0
 email-validator>=2.0.0
+
+# Face recognition dependencies
+# Pin deepface to a published version compatible with PyPI availability
+deepface==0.0.96
+opencv-python>=4.7.0.72
+numpy>=1.25.0
+pandas>=2.0.0
+scikit-learn>=1.2.0
+xgboost>=1.7.0
+joblib>=1.2.0
+ortools>=9.6.2537
+pgmpy>=0.1.20

@@ -1,0 +1,301 @@
+employee_id,department,role,date_hired,days_since_hired,contract_type,max_weekly_hours,scheduled_last_week,available_tomorrow,on_leave_tomorrow,preferred_shift,skills,salary_rate,days_present_last_30,days_absent_last_30,days_late_last_30,avg_late_minutes,overtime_hours_last_30,meetings_hours_last_30,tasks_completed_last_30,quality_score,missed_deadlines,weekend_work,productivity_score,risk_low_productivity,coaching_needed_flag,training_completed,last_training_date,performance_issue_flag
+1,Support,Support Agent,2022-02-26,1376,FullTime,40,1,1,0,Remote,CustomerService|Troubleshooting,595.69,27,3,2,0,0.77,21.4,110,87.1,0,0,70,0,0,0,,0
+2,Support,Support Agent,2022-09-01,1189,FullTime,40,4,1,0,Afternoon,CustomerService|Troubleshooting,890.61,28,2,1,5,2.38,31.6,101,69.7,0,0,80,0,0,1,2025-06-27,0
+3,Marketing,Content Specialist,2022-03-15,1359,FullTime,40,1,1,0,Morning,,519.3,29,1,2,10,3.74,41.6,86,98.8,0,1,91,0,0,0,,0
+4,HR,Recruiter,2018-01-10,2884,FullTime,40,2,1,0,Morning,,400.35,28,2,2,5,2.54,16.4,102,91.1,0,1,92,0,0,1,2025-09-04,0
+5,Sales,Account Manager,2023-02-09,1028,Contract,20,5,1,0,Morning,,585.11,26,4,1,3,5.6,12.5,89,87.4,0,0,82,0,0,1,2025-06-21,0
+6,Sales,Sales Rep,2018-12-11,2549,FullTime,40,3,1,0,Morning,Negotiation|CRM,1079.28,30,0,6,6,3.07,26.4,57,90.6,0,0,66,0,1,1,2025-04-30,0
+7,Admin,Executive Assistant,2025-02-17,289,FullTime,40,5,1,0,Morning,,898.74,30,0,2,7,4.5,37.9,80,92.9,0,1,85,0,0,0,,0
+8,Engineering,DevOps,2025-04-23,224,PartTime,24,0,1,0,Morning,Coding|SystemDesign,424.57,28,2,1,8,4.94,14.7,83,83.7,0,0,60,1,0,1,2025-07-18,0
+9,Sales,Sales Rep,2017-12-17,2908,FullTime,40,0,1,0,Morning,Negotiation|CRM,725.62,27,3,0,10,3.18,14.2,90,83.1,0,0,86,0,0,1,2025-02-19,0
+10,Engineering,QA Engineer,2020-05-04,2039,FullTime,40,0,1,0,Morning,Coding|SystemDesign|Testing|Automation,972.89,26,4,1,9,2.99,16.9,76,81.7,0,0,62,1,0,1,2025-06-12,0
+11,Marketing,SEO Specialist,2019-12-25,2170,FullTime,40,2,1,0,Morning,,369.5,28,2,1,5,2.35,24.6,83,88.2,0,0,80,0,0,1,2024-12-05,0
+12,HR,HR Generalist,2021-09-08,1547,FullTime,40,2,1,0,Morning,Recruitment,389.11,28,2,3,0,2.26,25.7,88,88.1,0,2,62,1,1,0,,0
+13,Engineering,QA Engineer,2022-09-01,1189,FullTime,40,0,1,0,Morning,Coding|SystemDesign|Testing|Automation,433.9,29,1,2,8,0.72,32.3,63,90.3,1,1,78,0,1,0,,1
+14,Admin,Executive Assistant,2023-05-03,945,FullTime,40,3,1,0,Morning,,707.78,27,3,0,6,2.77,22.4,98,100.0,0,0,91,0,0,1,2025-09-03,0
+15,Admin,Executive Assistant,2020-03-28,2076,Contract,20,4,0,0,Morning,,650.89,26,4,1,6,1.83,32.9,79,91.8,0,1,77,0,0,0,,0
+16,Support,Support Agent,2023-04-28,950,FullTime,40,1,1,0,Morning,CustomerService|Troubleshooting,344.42,26,4,2,3,0.0,36.5,78,86.8,0,1,87,0,0,1,2025-03-17,0
+17,Engineering,Software Engineer,2023-04-24,954,FullTime,40,2,1,0,Morning,Coding|SystemDesign,678.48,29,1,3,0,4.39,40.0,91,89.0,0,1,85,0,0,1,2025-09-04,0
+18,Operations,Office Manager,2019-01-21,2508,FullTime,40,3,1,0,Morning,,587.83,29,1,2,4,2.85,16.5,114,86.1,0,1,70,0,0,0,,0
+19,Admin,Executive Assistant,2020-04-03,2070,FullTime,40,0,1,0,Morning,,625.64,28,2,4,15,0.0,20.2,106,96.7,0,0,77,0,0,1,2024-12-09,0
+20,Operations,Logistics Coordinator,2024-10-10,419,FullTime,40,1,1,0,Remote,,725.48,26,4,0,12,6.15,21.1,87,96.7,0,0,71,0,0,0,,0
+21,Operations,Office Manager,2020-05-21,2022,FullTime,40,0,1,0,Morning,,848.7,28,2,3,5,1.05,23.6,52,89.1,0,1,72,0,0,0,,0
+22,Operations,Office Manager,2023-12-14,720,FullTime,40,1,1,0,Morning,,349.22,24,6,1,15,0.56,31.5,88,88.4,0,0,76,1,0,0,,0
+23,Operations,Office Manager,2024-11-05,393,FullTime,40,5,1,0,Afternoon,,1066.39,28,2,0,6,3.0,29.5,75,80.6,0,0,68,0,0,1,2025-09-25,0
+24,Engineering,QA Engineer,2023-01-13,1055,FullTime,40,2,1,0,Morning,Coding|SystemDesign|Testing|Automation,1041.05,27,3,4,5,3.96,33.1,59,92.4,0,0,75,0,0,1,2025-02-07,0
+25,Engineering,Software Engineer,2018-10-07,2614,FullTime,40,3,1,0,Morning,Coding|SystemDesign,623.88,25,5,2,7,2.06,17.2,80,98.0,0,0,79,1,0,1,2025-08-16,0
+26,Support,Technical Support,2019-11-03,2222,FullTime,40,2,1,0,Morning,CustomerService|Troubleshooting,819.25,29,1,4,0,1.29,22.8,96,95.0,0,1,75,0,0,1,2025-09-28,0
+27,Marketing,SEO Specialist,2019-11-24,2201,PartTime,24,0,1,0,Morning,,334.94,29,1,5,11,2.66,32.5,90,93.7,0,0,84,0,0,1,2024-12-11,0
+28,Support,Technical Support,2022-04-16,1327,FullTime,40,3,1,0,Morning,CustomerService|Troubleshooting,683.24,28,2,2,10,6.97,33.5,100,100.0,0,0,76,0,0,0,,0
+29,HR,HR Generalist,2019-08-20,2297,Contract,20,4,1,0,Afternoon,Recruitment,480.79,25,5,6,5,5.81,22.2,77,99.4,0,0,90,1,0,1,2025-01-24,0
+30,Admin,Executive Assistant,2024-08-18,472,FullTime,40,1,1,0,Afternoon,,1157.34,29,1,1,6,3.06,30.3,75,87.2,0,0,87,0,0,0,,0
+31,Operations,Office Manager,2023-10-11,784,FullTime,40,5,1,0,Morning,,748.79,24,6,1,15,6.36,25.6,88,91.4,0,0,93,1,1,0,,1
+32,Sales,Account Manager,2019-02-02,2496,PartTime,24,5,1,0,Remote,,862.15,30,0,2,0,2.52,17.8,83,84.0,0,0,72,0,0,1,2025-01-07,0
+33,Engineering,DevOps,2020-07-31,1951,PartTime,24,2,1,0,Morning,Coding|SystemDesign,339.21,29,1,3,5,3.64,36.7,68,96.8,0,2,90,0,0,1,2025-09-20,0
+34,Support,Support Agent,2020-06-06,2006,FullTime,40,0,1,0,Morning,CustomerService|Troubleshooting,798.04,27,3,3,5,2.67,40.4,87,83.4,0,1,64,1,1,1,2025-08-16,0
+35,Admin,Executive Assistant,2021-08-28,1558,FullTime,40,3,1,0,Afternoon,,371.55,28,2,4,4,0.86,15.6,85,82.9,0,0,64,1,1,1,2025-07-02,0
+36,Admin,Executive Assistant,2024-04-10,602,Contract,20,3,1,0,Afternoon,,351.92,30,0,2,6,2.11,22.3,89,88.4,0,0,84,0,0,0,,0
+37,Finance,Accountant,2020-09-20,1900,PartTime,24,0,1,0,Morning,,800.27,28,2,1,10,0.96,8.7,82,88.6,0,0,70,0,0,0,,0
+38,Engineering,DevOps,2025-05-22,195,FullTime,40,5,1,0,Morning,Coding|SystemDesign,1179.33,27,3,3,0,2.41,12.8,83,93.1,0,0,72,0,0,0,,0
+39,Finance,Accountant,2020-04-17,2056,FullTime,40,5,1,0,Morning,,313.68,26,4,2,10,0.0,41.0,101,81.2,0,1,85,0,0,1,2025-01-04,0
+40,HR,Recruiter,2024-06-30,521,FullTime,40,0,1,0,Remote,,560.97,28,2,2,15,0.82,28.0,97,95.0,0,1,89,0,0,1,2025-08-08,0
+41,HR,Recruiter,2023-03-05,1004,FullTime,40,3,1,0,Morning,,826.51,28,2,2,12,2.48,21.7,71,88.3,0,1,79,0,0,0,,0
+42,Marketing,Content Specialist,2025-06-16,170,FullTime,40,2,1,0,Morning,,977.88,29,1,5,8,1.83,26.6,92,85.5,0,1,81,0,0,1,2025-07-28,0
+43,Marketing,Content Specialist,2024-06-02,549,FullTime,40,0,1,0,Morning,,964.46,29,1,2,0,0.01,24.2,75,94.2,0,0,76,0,0,0,,0
+44,Support,Support Agent,2024-02-25,647,FullTime,40,3,1,0,Morning,CustomerService|Troubleshooting,592.48,29,1,0,7,2.97,14.5,74,80.1,0,0,66,0,0,1,2025-10-23,0
+45,HR,Recruiter,2025-05-15,202,PartTime,24,5,1,0,Morning,,665.82,28,2,1,19,3.46,25.1,79,84.8,1,0,59,1,1,0,,0
+46,Finance,Payroll Specialist,2024-02-20,652,FullTime,40,0,1,0,Morning,,478.5,29,1,4,8,3.94,20.6,108,100.0,0,0,87,0,0,0,,0
+47,Sales,Sales Rep,2020-01-21,2143,PartTime,24,1,1,0,Remote,Negotiation|CRM,698.41,30,0,5,5,6.72,32.5,90,79.5,0,1,89,0,0,0,,0
+48,Admin,Executive Assistant,2017-12-08,2917,PartTime,24,4,1,0,Morning,,523.52,28,2,5,5,6.47,16.2,89,83.2,0,1,61,1,1,1,2025-03-08,0
+49,Finance,Accountant,2024-12-22,346,FullTime,40,3,1,0,Morning,,313.76,28,2,4,14,4.78,23.2,78,88.1,0,0,77,0,0,0,,0
+50,Admin,Executive Assistant,2020-01-10,2154,Contract,20,2,1,0,Remote,,348.56,29,1,1,4,3.46,19.5,87,100.0,0,0,82,0,0,0,,0
+51,Engineering,DevOps,2021-06-09,1638,PartTime,24,3,1,0,Morning,Coding|SystemDesign,947.41,29,1,2,14,3.66,23.6,82,94.8,0,0,79,0,0,0,,0
+52,Sales,Sales Rep,2020-08-27,1924,FullTime,40,4,1,0,Afternoon,Negotiation|CRM,1124.9,28,2,4,0,7.07,31.2,90,92.3,0,0,77,0,0,1,2024-12-05,0
+53,Marketing,Content Specialist,2021-01-25,1773,FullTime,40,5,1,0,Morning,,744.45,27,3,2,8,3.94,24.2,102,82.1,0,0,83,0,0,0,,0
+54,Engineering,DevOps,2023-05-06,942,FullTime,40,0,1,0,Remote,Coding|SystemDesign,955.86,29,1,2,18,1.33,31.1,72,81.7,1,0,63,1,1,1,2024-12-18,0
+55,Engineering,QA Engineer,2022-01-22,1411,FullTime,40,5,1,0,Morning,Coding|SystemDesign|Testing|Automation,413.64,27,3,2,4,2.31,34.2,65,90.1,0,0,75,0,0,0,,0
+56,Engineering,DevOps,2021-04-23,1685,FullTime,40,2,1,0,Morning,Coding|SystemDesign,674.31,28,2,1,13,1.13,29.6,90,90.8,0,1,83,0,0,1,2025-02-26,0
+57,Engineering,DevOps,2021-06-16,1631,Contract,20,2,1,0,Morning,Coding|SystemDesign,520.9,28,2,1,8,6.67,24.1,75,81.3,0,0,72,0,0,1,2024-12-27,0
+58,HR,Recruiter,2018-02-07,2856,PartTime,24,2,1,0,Morning,,755.03,28,2,5,0,2.14,26.4,95,90.0,0,1,90,0,0,1,2025-09-03,0
+59,Admin,Executive Assistant,2023-09-08,817,FullTime,40,4,1,0,Morning,,967.99,29,1,4,3,2.53,23.6,74,94.5,0,0,78,0,0,1,2024-12-14,0
+60,HR,Recruiter,2022-10-02,1158,FullTime,40,3,1,0,Remote,,324.93,29,1,2,4,6.14,35.5,106,91.4,0,1,76,0,0,1,2025-01-29,0
+61,Sales,Account Manager,2019-01-01,2528,PartTime,24,1,1,0,Morning,,507.89,26,4,1,11,3.41,19.1,87,94.5,0,1,85,0,0,1,2025-09-18,0
+62,Finance,Payroll Specialist,2021-08-10,1576,PartTime,24,4,1,0,Afternoon,,892.59,28,2,3,6,0.0,30.4,84,82.7,0,0,91,0,0,0,,0
+63,HR,HR Generalist,2021-10-14,1511,FullTime,40,2,1,0,Morning,Recruitment,846.82,26,4,3,16,0.0,27.6,74,76.4,0,1,76,0,1,0,,1
+64,Engineering,Software Engineer,2025-02-23,283,FullTime,40,3,1,0,Morning,Coding|SystemDesign,432.63,29,1,5,2,2.63,31.0,97,86.1,0,1,69,0,1,1,2025-05-27,0
+65,Sales,Sales Rep,2023-03-11,998,FullTime,40,5,1,0,Morning,Negotiation|CRM,575.36,26,4,2,5,2.84,24.4,92,79.3,0,0,81,0,0,1,2025-04-08,0
+66,Sales,Sales Rep,2022-11-01,1128,FullTime,40,0,1,0,Morning,Negotiation|CRM,629.88,28,2,5,0,3.22,42.9,94,96.7,0,2,84,0,0,0,,0
+67,Sales,Sales Rep,2022-09-18,1172,PartTime,24,5,1,0,Remote,Negotiation|CRM,642.02,27,3,2,6,0.0,23.2,81,95.5,0,0,69,0,1,1,2025-09-12,0
+68,Engineering,DevOps,2020-05-26,2017,FullTime,40,3,1,0,Afternoon,Coding|SystemDesign,1192.96,28,2,1,4,0.0,26.0,116,84.3,0,1,75,0,0,1,2025-04-22,0
+69,Operations,Office Manager,2018-11-29,2561,PartTime,24,4,1,0,Remote,,817.99,27,3,2,7,2.04,21.2,95,84.2,1,0,61,1,1,1,2025-06-09,0
+70,Marketing,Content Specialist,2022-02-27,1375,PartTime,24,2,1,0,Morning,,762.21,29,1,3,2,2.41,26.3,73,84.5,0,0,69,0,1,1,2024-12-12,0
+71,Finance,Payroll Specialist,2024-05-23,559,FullTime,40,3,1,0,Afternoon,,494.73,29,1,2,12,4.75,15.7,92,85.6,0,0,83,0,0,1,2025-05-01,0
+72,Sales,Account Manager,2023-03-18,991,FullTime,40,0,1,0,Afternoon,,504.18,28,2,0,11,3.61,34.4,66,81.7,0,0,75,0,0,1,2025-10-24,0
+73,Engineering,DevOps,2021-08-22,1564,FullTime,40,4,1,0,Afternoon,Coding|SystemDesign,535.05,29,1,4,7,3.21,25.7,83,89.1,0,1,90,0,0,0,,0
+74,Sales,Account Manager,2024-01-13,690,FullTime,40,2,1,0,Remote,,1112.71,26,4,1,0,4.25,30.8,72,79.3,1,0,49,1,1,1,2025-03-23,0
+75,Sales,Account Manager,2025-06-23,163,PartTime,24,4,1,0,Afternoon,,786.69,28,2,3,0,3.94,33.0,80,90.8,0,2,75,0,0,0,,0
+76,Marketing,Content Specialist,2018-10-11,2610,Contract,20,0,0,1,Remote,,664.25,28,2,2,8,1.65,21.1,79,84.0,0,0,62,1,1,0,,0
+77,Marketing,Content Specialist,2025-05-12,205,FullTime,40,1,1,0,Morning,,700.83,26,4,1,9,1.23,22.8,82,95.9,0,2,86,0,0,0,,0
+78,Marketing,Content Specialist,2025-02-17,289,Contract,20,5,1,0,Morning,,390.83,28,2,3,13,3.52,27.5,81,85.7,0,1,85,0,0,0,,0
+79,Operations,Logistics Coordinator,2024-11-19,379,FullTime,40,3,1,0,Morning,,532.76,29,1,1,0,3.21,38.9,94,92.2,0,0,81,0,0,0,,0
+80,Sales,Sales Rep,2021-05-14,1664,FullTime,40,5,0,0,Morning,Negotiation|CRM,1134.87,29,1,0,0,3.78,18.6,79,93.9,0,0,81,0,0,0,,0
+81,Finance,Payroll Specialist,2021-04-12,1696,FullTime,40,0,1,0,Morning,,458.09,27,3,1,3,4.04,29.5,89,91.2,0,0,69,0,0,1,2025-04-16,0
+82,Support,Technical Support,2022-05-25,1288,Contract,20,5,1,0,Remote,CustomerService|Troubleshooting,331.4,30,0,1,4,2.47,31.2,74,88.3,0,0,66,0,0,1,2025-06-27,0
+83,Admin,Executive Assistant,2023-08-08,848,PartTime,24,4,1,0,Remote,,1026.9,29,1,2,12,3.24,18.1,71,87.1,0,1,78,0,0,1,2025-07-28,0
+84,HR,HR Generalist,2025-01-30,307,FullTime,40,4,1,0,Morning,Recruitment,553.58,27,3,2,5,4.35,18.2,49,100.0,0,1,95,0,0,0,,0
+85,Support,Technical Support,2023-10-06,789,FullTime,40,5,1,0,Morning,CustomerService|Troubleshooting,605.3,26,4,3,2,2.66,28.0,52,92.0,0,0,70,0,0,0,,0
+86,Support,Technical Support,2023-07-18,869,FullTime,40,3,1,0,Remote,CustomerService|Troubleshooting,885.95,30,0,2,6,2.88,19.3,118,93.1,0,0,75,0,0,1,2025-09-28,0
+87,Marketing,SEO Specialist,2022-05-19,1294,FullTime,40,4,1,0,Morning,,894.33,28,2,3,13,4.75,29.3,86,90.0,1,0,69,0,1,1,2025-04-28,1
+88,Marketing,SEO Specialist,2023-01-17,1051,Contract,20,2,0,0,Remote,,742.19,28,2,4,0,6.97,17.6,90,86.6,0,0,95,0,0,1,2025-03-02,0
+89,HR,HR Generalist,2023-03-20,989,FullTime,40,4,1,0,Morning,Recruitment,872.57,27,3,0,9,5.39,40.3,89,82.4,1,1,66,0,1,1,2025-05-24,0
+90,Support,Technical Support,2024-07-23,498,FullTime,40,3,1,0,Morning,CustomerService|Troubleshooting,313.61,28,2,2,12,1.01,29.3,92,92.5,0,1,86,0,0,0,,0
+91,Sales,Account Manager,2024-11-17,381,FullTime,40,3,1,0,Morning,,1127.04,28,2,1,12,3.65,17.7,94,89.4,0,0,72,0,0,0,,0
+92,Support,Support Agent,2023-07-29,858,PartTime,24,3,1,0,Morning,CustomerService|Troubleshooting,414.22,27,3,1,5,1.83,15.5,101,69.0,1,0,64,1,1,0,,0
+93,HR,HR Generalist,2018-06-01,2742,FullTime,40,1,1,0,Morning,Recruitment,483.98,27,3,1,13,5.25,26.5,80,81.7,0,1,68,0,0,1,2025-05-08,0
+94,Operations,Logistics Coordinator,2023-08-31,825,FullTime,40,1,1,0,Afternoon,,1141.14,30,0,6,11,3.66,22.6,57,77.8,0,1,71,0,0,1,2025-08-25,0
+95,Operations,Logistics Coordinator,2020-03-19,2085,FullTime,40,2,1,0,Afternoon,,809.64,28,2,1,12,1.53,25.2,85,83.5,0,0,60,1,0,0,,0
+96,Admin,Executive Assistant,2019-02-17,2481,Contract,20,3,1,0,Afternoon,,714.82,29,1,0,5,0.0,15.6,78,80.4,0,1,80,0,0,1,2025-01-08,0
+97,Finance,Payroll Specialist,2020-05-01,2042,FullTime,40,0,1,0,Afternoon,,944.72,28,2,1,7,4.91,14.3,84,89.6,1,0,78,0,1,1,2025-03-13,0
+98,Marketing,Content Specialist,2018-01-16,2878,FullTime,40,3,1,0,Afternoon,,848.98,28,2,1,14,1.95,23.9,72,82.4,0,0,72,0,0,1,2025-02-19,0
+99,Marketing,SEO Specialist,2018-10-09,2612,FullTime,40,0,1,0,Remote,,952.4,27,3,2,6,0.01,35.3,82,75.1,1,0,66,0,1,1,2025-03-02,0
+100,Sales,Sales Rep,2019-06-28,2350,PartTime,24,4,1,0,Morning,Negotiation|CRM,408.25,24,6,0,9,0.0,24.5,107,99.5,0,1,70,1,0,0,,0
+101,Engineering,QA Engineer,2022-09-02,1188,PartTime,24,4,1,0,Morning,Coding|SystemDesign|Testing|Automation,806.56,28,2,1,4,1.87,23.8,73,91.9,0,0,82,0,0,1,2025-07-03,0
+102,Admin,Executive Assistant,2021-03-11,1728,FullTime,40,1,0,1,Morning,,314.41,26,4,1,14,2.62,11.5,55,90.2,0,0,87,0,0,1,2025-04-16,0
+103,Finance,Payroll Specialist,2017-12-07,2918,PartTime,24,1,1,0,Morning,,932.7,24,6,5,1,3.12,31.0,65,82.0,0,0,71,1,0,0,,0
+104,Sales,Account Manager,2019-02-05,2493,FullTime,40,1,1,0,Morning,,1068.61,28,2,3,9,1.78,18.6,74,84.8,2,0,76,1,1,1,2025-08-26,0
+105,Engineering,Software Engineer,2025-01-14,323,FullTime,40,5,1,0,Remote,Coding|SystemDesign,1112.2,26,4,3,0,0.95,12.1,106,91.3,1,0,75,0,1,0,,1
+106,Sales,Sales Rep,2023-02-15,1022,PartTime,24,2,1,0,Remote,Negotiation|CRM,1003.18,29,1,0,12,1.72,22.6,75,86.8,0,0,80,0,0,0,,0
+107,Support,Technical Support,2024-01-21,682,FullTime,40,4,1,0,Morning,CustomerService|Troubleshooting,308.68,28,2,2,8,7.51,23.3,73,87.0,0,0,83,0,0,1,2025-09-06,0
+108,Support,Support Agent,2019-07-18,2330,FullTime,40,1,1,0,Morning,CustomerService|Troubleshooting,444.15,30,0,3,13,1.03,6.1,70,94.7,1,0,87,0,1,1,2025-05-11,0
+109,Support,Support Agent,2023-07-06,881,FullTime,40,4,1,0,Morning,CustomerService|Troubleshooting,287.11,30,0,1,8,1.25,18.5,79,84.9,0,1,83,0,0,0,,0
+110,Engineering,DevOps,2023-05-06,942,FullTime,40,2,1,0,Morning,Coding|SystemDesign,1146.33,29,1,3,2,1.77,14.3,62,80.9,0,0,84,0,0,1,2025-07-12,0
+111,Finance,Accountant,2022-03-25,1349,PartTime,24,0,1,0,Morning,,323.65,27,3,3,9,0.74,12.6,91,81.9,1,0,74,0,1,1,2025-07-03,0
+112,Engineering,DevOps,2018-10-19,2602,FullTime,40,3,1,0,Morning,Coding|SystemDesign,715.11,28,2,3,9,5.73,40.3,52,85.2,0,0,81,0,1,1,2025-03-30,1
+113,Operations,Logistics Coordinator,2018-03-22,2813,Contract,20,5,1,0,Morning,,360.49,28,2,2,9,5.57,23.6,102,95.3,1,0,74,0,1,1,2025-10-23,0
+114,Sales,Account Manager,2024-07-08,513,FullTime,40,0,1,0,Morning,,797.19,28,2,1,14,5.69,30.4,82,93.1,0,1,78,0,0,1,2025-07-22,0
+115,Support,Support Agent,2019-04-30,2409,Contract,20,1,1,0,Morning,CustomerService|Troubleshooting,466.46,28,2,2,6,2.75,21.8,94,92.2,0,0,75,0,0,0,,0
+116,Support,Support Agent,2024-11-17,381,FullTime,40,3,1,0,Afternoon,CustomerService|Troubleshooting,632.04,28,2,2,6,3.14,29.4,65,85.5,0,0,71,0,0,0,,0
+117,Marketing,Content Specialist,2021-05-16,1662,PartTime,24,5,1,0,Remote,,937.16,28,2,1,12,2.45,33.8,97,91.1,0,1,79,0,0,0,,0
+118,Sales,Sales Rep,2018-10-11,2610,FullTime,40,3,1,0,Afternoon,Negotiation|CRM,791.43,28,2,1,9,3.78,12.0,88,84.4,1,1,80,0,1,1,2024-12-20,0
+119,Engineering,QA Engineer,2022-12-20,1079,FullTime,40,2,1,0,Afternoon,Coding|SystemDesign|Testing|Automation,509.15,29,1,3,8,4.69,28.7,68,82.7,0,0,73,0,0,1,2025-03-31,0
+120,Admin,Executive Assistant,2023-05-07,941,FullTime,40,5,1,0,Remote,,435.07,25,5,1,9,0.0,39.5,95,88.4,0,0,73,1,0,1,2025-05-30,0
+121,Sales,Account Manager,2021-12-31,1433,FullTime,40,4,1,0,Afternoon,,448.03,25,5,4,5,1.05,37.2,94,100.0,0,0,79,1,0,0,,0
+122,Sales,Sales Rep,2023-07-11,876,FullTime,40,1,0,1,Morning,Negotiation|CRM,518.66,28,2,2,6,2.34,35.1,66,90.1,0,1,93,0,0,1,2025-06-20,0
+123,Engineering,DevOps,2025-10-07,57,FullTime,40,0,1,0,Remote,Coding|SystemDesign,873.88,28,2,2,11,1.6,25.6,90,96.3,0,0,87,0,0,0,,0
+124,Sales,Account Manager,2019-07-24,2324,PartTime,24,2,1,0,Morning,,1134.18,28,2,0,10,3.64,21.9,84,89.8,0,0,74,0,0,1,2025-07-08,0
+125,HR,HR Generalist,2020-12-16,1813,Contract,20,0,1,0,Afternoon,Recruitment,854.8,28,2,2,9,2.7,13.9,80,83.3,0,1,77,0,0,1,2025-08-15,0
+126,Operations,Logistics Coordinator,2020-03-31,2073,FullTime,40,5,1,0,Morning,,838.07,28,2,1,10,5.63,28.8,103,86.0,0,0,94,0,0,1,2025-05-12,0
+127,Marketing,Content Specialist,2019-12-18,2177,FullTime,40,3,1,0,Afternoon,,697.79,29,1,2,6,5.16,20.7,91,82.3,0,1,80,0,0,1,2025-06-13,0
+128,Sales,Account Manager,2020-12-15,1814,FullTime,40,0,1,0,Morning,,428.45,28,2,5,12,2.58,26.4,66,98.0,0,1,91,0,0,0,,0
+129,Marketing,SEO Specialist,2019-06-06,2372,FullTime,40,0,1,0,Morning,,360.5,28,2,5,9,1.62,20.3,89,91.6,0,0,85,0,0,1,2025-08-01,0
+130,Engineering,DevOps,2020-04-01,2072,FullTime,40,1,1,0,Morning,Coding|SystemDesign,682.7,28,2,5,11,2.79,20.7,75,94.7,0,4,82,0,0,1,2025-07-15,0
+131,Engineering,QA Engineer,2022-05-22,1291,PartTime,24,4,1,0,Morning,Coding|SystemDesign|Testing|Automation,1007.95,29,1,1,15,3.08,21.1,55,82.0,1,0,85,0,1,1,2025-01-19,0
+132,Engineering,DevOps,2023-07-27,860,FullTime,40,4,1,0,Morning,Coding|SystemDesign,880.03,30,0,2,14,5.11,13.3,97,98.4,0,0,88,0,0,0,,0
+133,Support,Support Agent,2022-07-04,1248,FullTime,40,4,1,0,Remote,CustomerService|Troubleshooting,401.69,28,2,1,6,1.01,31.6,82,90.4,1,1,65,0,1,0,,0
+134,Marketing,Content Specialist,2024-07-19,502,FullTime,40,2,1,0,Remote,,641.91,28,2,3,11,0.0,22.4,89,72.3,1,1,66,0,1,0,,0
+135,Admin,Executive Assistant,2022-11-01,1128,FullTime,40,5,1,0,Morning,,1118.01,29,1,1,10,5.21,32.8,57,87.3,1,2,83,0,1,0,,0
+136,Sales,Account Manager,2022-11-10,1119,FullTime,40,4,1,0,Afternoon,,315.62,28,2,1,8,2.32,23.0,102,87.9,0,0,75,0,0,1,2025-03-14,0
+137,HR,HR Generalist,2025-09-04,90,FullTime,40,4,1,0,Morning,Recruitment,381.52,29,1,6,13,0.0,20.2,88,92.9,1,1,70,0,1,1,2025-01-24,0
+138,Support,Technical Support,2020-02-16,2117,Contract,20,3,1,0,Morning,CustomerService|Troubleshooting,318.27,29,1,1,4,5.14,25.0,80,89.9,0,0,81,0,0,0,,0
+139,Operations,Office Manager,2020-01-01,2163,PartTime,24,2,1,0,Morning,,856.62,28,2,2,0,5.4,30.6,91,86.8,0,0,80,0,1,1,2025-05-24,1
+140,Engineering,QA Engineer,2025-09-05,89,FullTime,40,1,1,0,Afternoon,Coding|SystemDesign|Testing|Automation,1190.43,28,2,2,11,4.0,28.0,92,84.1,0,0,78,0,0,1,2025-04-01,0
+141,Engineering,Software Engineer,2021-04-07,1701,FullTime,40,4,1,0,Afternoon,Coding|SystemDesign,1094.09,29,1,1,6,1.95,30.7,91,86.0,0,0,78,0,0,1,2025-06-24,0
+142,Engineering,Software Engineer,2021-07-25,1592,FullTime,40,5,1,0,Afternoon,Coding|SystemDesign,383.11,29,1,0,2,3.26,31.0,100,91.7,0,0,79,0,0,1,2025-04-16,0
+143,Admin,Executive Assistant,2024-08-14,476,Contract,20,0,1,0,Morning,,883.56,28,2,2,9,7.73,18.7,77,95.2,0,0,71,0,0,1,2025-07-10,0
+144,Operations,Office Manager,2020-05-24,2019,FullTime,40,0,1,0,Morning,,1136.89,26,4,3,5,6.15,19.8,88,88.8,0,0,76,0,0,0,,0
+145,Marketing,Content Specialist,2021-07-03,1614,PartTime,24,5,1,0,Morning,,643.49,27,3,4,2,1.57,30.6,56,85.1,0,0,57,1,1,1,2025-10-17,0
+146,Sales,Sales Rep,2019-09-13,2273,Contract,20,2,1,0,Afternoon,Negotiation|CRM,537.67,27,3,0,5,2.2,23.3,101,89.3,0,1,77,0,0,0,,0
+147,Operations,Office Manager,2024-06-14,537,FullTime,40,2,1,0,Afternoon,,951.78,30,0,0,3,4.06,24.4,99,88.4,0,1,80,0,0,0,,0
+148,Marketing,Content Specialist,2021-02-22,1745,FullTime,40,4,1,0,Morning,,462.26,25,5,1,5,5.01,11.4,64,100.0,0,1,69,1,1,1,2025-01-13,1
+149,Marketing,SEO Specialist,2018-12-23,2537,FullTime,40,4,1,0,Morning,,437.96,27,3,6,10,0.46,18.6,76,81.9,0,0,83,0,0,0,,0
+150,Admin,Executive Assistant,2018-12-23,2537,PartTime,24,1,1,0,Morning,,1044.57,29,1,3,0,3.39,15.3,51,77.4,1,0,43,1,1,0,,0
+151,Support,Technical Support,2019-04-26,2413,PartTime,24,3,1,0,Morning,CustomerService|Troubleshooting,800.62,29,1,2,5,0.0,38.5,91,89.1,0,0,75,0,0,0,,0
+152,Finance,Payroll Specialist,2023-09-24,801,PartTime,24,4,1,0,Morning,,861.91,27,3,2,8,5.5,18.9,87,100.0,0,0,83,0,0,0,,0
+153,Marketing,Content Specialist,2023-12-22,712,FullTime,40,2,1,0,Afternoon,,668.6,27,3,3,7,5.7,16.4,74,88.5,1,0,73,0,1,1,2025-02-04,0
+154,Engineering,DevOps,2019-02-08,2490,PartTime,24,0,1,0,Morning,Coding|SystemDesign,702.79,26,4,2,0,0.89,19.6,81,86.5,0,1,51,1,1,1,2025-09-26,0
+155,Support,Support Agent,2022-03-18,1356,FullTime,40,0,1,0,Morning,CustomerService|Troubleshooting,810.69,28,2,1,2,2.37,43.2,67,85.8,0,0,62,1,0,1,2025-10-21,0
+156,Marketing,SEO Specialist,2019-04-08,2431,FullTime,40,3,0,0,Morning,,650.95,29,1,2,6,2.41,31.9,92,88.7,0,0,75,0,0,0,,0
+157,Sales,Sales Rep,2023-01-28,1040,FullTime,40,4,1,0,Remote,Negotiation|CRM,691.84,28,2,2,12,0.02,20.8,99,100.0,0,0,76,0,0,0,,0
+158,Support,Support Agent,2024-11-11,387,FullTime,40,3,1,0,Morning,CustomerService|Troubleshooting,621.2,30,0,3,15,4.04,32.2,84,88.0,0,0,90,0,0,1,2025-03-13,0
+159,Finance,Payroll Specialist,2025-01-26,311,FullTime,40,1,1,0,Remote,,492.33,28,2,1,0,4.65,22.5,88,86.7,0,0,76,0,0,1,2025-06-01,0
+160,Marketing,SEO Specialist,2018-12-29,2531,FullTime,40,1,1,0,Morning,,497.82,29,1,3,1,0.0,20.0,91,81.5,1,0,79,0,1,0,,0
+161,Engineering,Software Engineer,2023-02-17,1020,FullTime,40,4,1,0,Morning,Coding|SystemDesign,494.92,28,2,2,18,3.2,27.3,67,86.3,0,0,68,0,1,1,2025-05-13,0
+162,Marketing,SEO Specialist,2021-09-24,1531,FullTime,40,1,1,0,Morning,,823.32,28,2,2,0,5.58,18.1,72,91.4,0,0,63,1,1,0,,0
+163,Operations,Office Manager,2020-10-13,1877,FullTime,40,1,1,0,Remote,,679.29,27,3,3,13,4.6,21.2,64,94.2,0,0,79,0,0,0,,0
+164,Sales,Account Manager,2022-05-11,1302,FullTime,40,0,1,0,Remote,,909.29,27,3,4,2,2.82,24.2,79,90.2,0,2,76,0,0,0,,0
+165,Finance,Payroll Specialist,2022-06-25,1257,PartTime,24,1,1,0,Remote,,585.55,28,2,2,0,6.86,38.3,98,84.3,0,1,83,0,0,0,,0
+166,Support,Technical Support,2022-11-15,1114,FullTime,40,4,0,0,Morning,CustomerService|Troubleshooting,457.23,28,2,2,0,5.41,30.6,80,92.3,0,0,65,0,1,0,,0
+167,Sales,Account Manager,2019-07-25,2323,FullTime,40,1,1,0,Morning,,884.86,26,4,2,0,4.8,18.6,89,81.2,0,1,72,0,0,1,2025-10-15,0
+168,Admin,Executive Assistant,2021-03-26,1713,FullTime,40,0,1,0,Morning,,727.2,27,3,2,1,1.5,34.8,103,75.5,0,0,86,0,0,1,2025-01-25,0
+169,Marketing,Content Specialist,2019-08-04,2313,FullTime,40,4,1,0,Afternoon,,646.13,27,3,0,6,6.13,42.6,78,85.9,0,0,64,1,0,1,2025-07-27,0
+170,Engineering,QA Engineer,2024-07-29,492,Contract,20,1,1,0,Morning,Coding|SystemDesign|Testing|Automation,919.71,30,0,3,1,4.35,26.6,83,88.6,0,0,78,0,0,1,2025-01-06,0
+171,Engineering,QA Engineer,2023-12-18,716,FullTime,40,1,1,0,Morning,Coding|SystemDesign|Testing|Automation,361.57,29,1,4,0,6.0,34.6,85,82.4,0,0,76,0,1,1,2025-02-27,1
+172,Support,Technical Support,2021-04-30,1678,FullTime,40,1,0,1,Morning,CustomerService|Troubleshooting,459.31,28,2,5,10,7.26,39.5,73,86.1,1,0,79,0,1,1,2025-01-01,0
+173,Support,Support Agent,2018-03-13,2822,FullTime,40,0,1,0,Remote,CustomerService|Troubleshooting,324.7,28,2,1,2,7.08,33.1,60,85.3,0,1,81,0,0,1,2025-05-19,0
+174,Admin,Executive Assistant,2019-11-20,2205,FullTime,40,2,1,0,Remote,,460.88,27,3,2,11,2.66,45.4,103,85.3,1,0,49,1,1,1,2025-06-18,0
+175,Engineering,DevOps,2024-06-13,538,FullTime,40,4,0,0,Morning,Coding|SystemDesign,639.2,27,3,3,5,5.6,27.7,88,87.6,0,0,76,0,0,0,,0
+176,Engineering,Software Engineer,2019-09-03,2283,FullTime,40,2,0,0,Morning,Coding|SystemDesign,832.39,26,4,4,5,4.0,37.2,70,95.1,0,0,84,0,0,1,2025-09-21,0
+177,Marketing,SEO Specialist,2020-03-13,2091,FullTime,40,5,1,0,Afternoon,,470.98,30,0,2,9,4.91,27.5,86,94.3,0,0,84,0,0,1,2025-04-06,0
+178,Marketing,Content Specialist,2024-11-06,392,FullTime,40,5,1,0,Morning,,667.4,28,2,1,10,4.45,35.4,73,86.3,1,0,56,1,1,0,,0
+179,Marketing,SEO Specialist,2025-08-28,97,FullTime,40,2,1,0,Morning,,587.39,29,1,2,6,6.29,22.9,95,80.9,0,0,79,0,0,1,2025-03-14,0
+180,HR,Recruiter,2025-08-14,111,FullTime,40,2,1,0,Morning,,880.2,30,0,5,1,3.89,10.5,93,85.1,0,0,77,0,0,1,2025-09-02,0
+181,Engineering,QA Engineer,2019-08-28,2289,PartTime,24,1,1,0,Morning,Coding|SystemDesign|Testing|Automation,468.46,28,2,1,8,1.82,24.1,79,83.7,0,0,77,0,0,0,,0
+182,Operations,Logistics Coordinator,2023-09-09,816,FullTime,40,2,1,0,Afternoon,,304.81,26,4,3,2,6.8,19.1,75,90.7,0,0,71,0,0,0,,0
+183,Admin,Executive Assistant,2022-06-28,1254,FullTime,40,1,1,0,Morning,,784.48,28,2,3,12,3.6,47.0,54,85.1,1,2,66,0,1,1,2025-11-01,0
+184,Operations,Logistics Coordinator,2023-02-15,1022,FullTime,40,4,1,0,Morning,,994.45,29,1,1,16,3.79,27.8,95,93.9,0,1,73,0,1,1,2025-01-18,1
+185,Finance,Accountant,2019-10-15,2241,Contract,20,5,1,0,Afternoon,,656.47,28,2,0,6,6.14,18.2,77,92.2,0,1,80,0,0,1,2025-10-13,0
+186,Operations,Office Manager,2023-04-18,960,FullTime,40,4,1,0,Morning,,423.9,24,6,1,9,3.18,31.5,101,83.0,0,0,79,1,1,1,2025-03-26,1
+187,Sales,Sales Rep,2021-03-26,1713,FullTime,40,3,1,0,Afternoon,Negotiation|CRM,461.12,28,2,2,10,4.44,26.4,82,87.9,0,0,77,0,0,0,,0
+188,Engineering,QA Engineer,2021-09-12,1543,PartTime,24,1,1,0,Remote,Coding|SystemDesign|Testing|Automation,366.08,30,0,2,2,0.0,20.0,76,93.6,0,0,74,0,0,1,2025-10-26,0
+189,Admin,Executive Assistant,2019-12-05,2190,FullTime,40,0,1,0,Remote,,891.23,28,2,1,6,4.82,23.1,110,86.3,0,1,76,0,0,0,,0
+190,Sales,Sales Rep,2024-07-22,499,FullTime,40,0,1,0,Morning,Negotiation|CRM,611.44,28,2,0,0,3.2,24.8,62,98.4,0,0,85,0,0,0,,0
+191,Sales,Sales Rep,2022-03-04,1370,PartTime,24,0,1,0,Morning,Negotiation|CRM,456.96,27,3,3,7,3.3,24.0,90,88.5,0,0,78,0,0,1,2025-03-08,0
+192,Engineering,Software Engineer,2020-03-04,2100,FullTime,40,1,1,0,Morning,Coding|SystemDesign,763.36,26,4,0,2,2.13,28.5,89,95.5,0,0,82,0,0,1,2025-10-31,0
+193,Support,Support Agent,2018-06-07,2736,Contract,20,0,1,0,Morning,CustomerService|Troubleshooting,811.01,30,0,4,1,5.25,5.5,93,100.0,0,0,71,0,0,0,,0
+194,Sales,Sales Rep,2019-06-23,2355,PartTime,24,5,1,0,Afternoon,Negotiation|CRM,571.31,30,0,1,0,0.0,24.8,128,95.2,0,0,91,0,0,1,2025-08-03,0
+195,Sales,Sales Rep,2020-07-13,1969,FullTime,40,3,1,0,Remote,Negotiation|CRM,346.61,27,3,4,13,2.64,19.7,89,98.2,0,1,80,0,0,1,2025-09-06,0
+196,Engineering,DevOps,2017-12-12,2913,FullTime,40,1,1,0,Afternoon,Coding|SystemDesign,459.13,28,2,1,0,1.76,35.2,78,79.0,0,0,75,0,0,1,2025-08-16,0
+197,Marketing,SEO Specialist,2023-11-12,752,FullTime,40,1,0,1,Morning,,499.51,28,2,3,11,0.47,29.2,79,87.7,0,0,89,0,0,1,2025-06-05,0
+198,Admin,Executive Assistant,2019-05-13,2396,FullTime,40,4,1,0,Morning,,539.61,29,1,2,3,7.25,32.8,67,98.6,0,1,80,0,0,1,2025-02-17,0
+199,HR,HR Generalist,2025-03-07,271,FullTime,40,0,1,0,Morning,Recruitment,575.59,28,2,5,4,5.9,25.6,101,85.5,0,0,83,0,0,1,2025-09-03,0
+200,HR,HR Generalist,2023-01-24,1044,FullTime,40,1,1,0,Morning,Recruitment,699.1,25,5,1,8,4.26,23.0,78,79.8,0,0,55,1,0,0,,0
+201,Sales,Sales Rep,2020-05-18,2025,FullTime,40,3,1,0,Remote,Negotiation|CRM,1015.06,25,5,1,3,4.47,27.4,79,85.4,0,4,94,1,0,1,2025-04-06,0
+202,Sales,Sales Rep,2022-09-27,1163,FullTime,40,0,0,0,Morning,Negotiation|CRM,1103.21,28,2,1,10,2.89,28.6,42,97.6,1,0,74,0,1,1,2025-01-04,0
+203,Sales,Account Manager,2019-05-30,2379,FullTime,40,5,1,0,Morning,,393.04,26,4,3,3,2.37,20.8,78,81.1,0,1,76,0,1,1,2025-05-22,1
+204,Marketing,Content Specialist,2018-08-13,2669,FullTime,40,5,1,0,Morning,,402.94,27,3,0,9,2.6,22.0,79,79.2,0,0,57,1,0,0,,0
+205,Engineering,Software Engineer,2025-07-31,125,Contract,20,3,1,0,Afternoon,Coding|SystemDesign,615.86,29,1,3,1,3.25,23.9,63,97.7,0,0,87,0,1,1,2025-08-01,1
+206,Marketing,Content Specialist,2020-09-27,1893,FullTime,40,5,1,0,Morning,,1073.56,26,4,5,8,0.0,25.1,79,85.5,0,1,61,1,1,1,2024-12-17,0
+207,Operations,Logistics Coordinator,2019-12-13,2182,FullTime,40,2,1,0,Remote,,667.51,27,3,2,7,1.63,20.8,100,89.7,0,0,78,0,0,0,,0
+208,Sales,Sales Rep,2018-06-13,2730,FullTime,40,2,1,0,Morning,Negotiation|CRM,761.68,29,1,3,12,3.26,29.0,59,91.7,0,0,75,0,0,1,2025-05-21,0
+209,Admin,Executive Assistant,2022-09-02,1188,FullTime,40,2,1,0,Morning,,834.71,24,6,1,5,4.11,15.6,68,91.2,0,0,75,1,0,1,2025-08-10,0
+210,Marketing,Content Specialist,2025-10-18,46,FullTime,40,3,1,0,Morning,,475.81,29,1,3,6,0.73,21.4,79,87.8,0,0,88,0,0,1,2024-12-27,0
+211,Support,Technical Support,2019-10-02,2254,Contract,20,1,1,0,Afternoon,CustomerService|Troubleshooting,426.52,29,1,1,17,0.0,25.8,77,91.8,0,0,82,0,0,1,2025-04-11,0
+212,Support,Support Agent,2019-05-18,2391,Contract,20,5,1,0,Afternoon,CustomerService|Troubleshooting,255.35,30,0,5,2,2.36,28.8,84,90.3,0,0,80,0,0,0,,0
+213,Finance,Payroll Specialist,2022-05-05,1308,FullTime,40,1,1,0,Afternoon,,592.61,26,4,5,5,4.08,25.1,77,85.1,1,0,83,0,1,1,2025-09-30,0
+214,Sales,Sales Rep,2019-09-11,2275,FullTime,40,1,1,0,Morning,Negotiation|CRM,859.61,30,0,2,2,4.51,16.8,97,92.2,1,0,87,0,1,1,2025-10-04,0
+215,Engineering,DevOps,2025-09-05,89,FullTime,40,1,1,0,Morning,Coding|SystemDesign,914.8,28,2,2,13,1.14,18.2,87,85.5,0,1,75,0,0,1,2025-08-25,0
+216,Admin,Executive Assistant,2022-08-20,1201,Contract,20,0,1,0,Morning,,353.89,28,2,0,0,5.32,20.2,82,86.2,0,1,70,0,0,0,,0
+217,Support,Technical Support,2022-11-09,1120,FullTime,40,2,0,1,Remote,CustomerService|Troubleshooting,459.88,29,1,3,12,1.24,34.2,50,72.6,0,0,78,0,0,1,2025-04-30,0
+218,Sales,Sales Rep,2018-06-02,2741,FullTime,40,4,1,0,Remote,Negotiation|CRM,1152.42,26,4,2,3,1.75,26.5,70,84.6,0,0,71,0,0,0,,0
+219,Engineering,QA Engineer,2022-05-30,1283,PartTime,24,4,1,0,Morning,Coding|SystemDesign|Testing|Automation,764.46,28,2,2,2,2.11,9.5,71,88.2,0,2,79,0,0,1,2025-05-27,0
+220,HR,Recruiter,2020-07-22,1960,FullTime,40,0,1,0,Morning,,760.25,27,3,3,7,2.51,14.9,80,81.1,0,0,75,0,0,0,,0
+221,Sales,Account Manager,2025-08-02,123,FullTime,40,2,1,0,Morning,,388.5,29,1,3,12,2.19,16.9,84,85.8,0,1,75,0,0,0,,0
+222,Admin,Executive Assistant,2020-02-28,2105,FullTime,40,4,1,0,Remote,,1031.74,28,2,1,5,2.99,33.2,87,84.8,1,0,71,0,1,1,2025-06-09,1
+223,Engineering,DevOps,2023-05-12,936,FullTime,40,2,1,0,Remote,Coding|SystemDesign,431.96,28,2,3,9,4.88,30.0,85,83.0,1,2,66,0,1,1,2025-03-20,0
+224,Sales,Account Manager,2022-07-10,1242,Contract,20,0,1,0,Morning,,954.65,26,4,2,15,0.0,23.9,76,90.8,0,2,81,0,0,1,2025-04-05,0
+225,Admin,Executive Assistant,2025-06-08,178,FullTime,40,0,1,0,Remote,,1172.09,30,0,0,7,2.65,18.1,74,88.0,1,1,79,0,1,1,2025-07-02,1
+226,Support,Technical Support,2021-06-15,1632,PartTime,24,5,1,0,Morning,CustomerService|Troubleshooting,493.87,26,4,3,0,0.95,22.2,61,86.4,0,0,79,0,1,0,,1
+227,Sales,Account Manager,2019-09-17,2269,FullTime,40,2,1,0,Afternoon,,1051.06,26,4,3,16,1.78,19.1,99,89.1,0,2,77,0,0,1,2024-12-18,0
+228,Marketing,Content Specialist,2018-07-13,2700,FullTime,40,1,1,0,Morning,,499.93,29,1,0,5,4.02,24.1,91,97.6,0,0,83,0,0,1,2025-07-27,0
+229,Finance,Payroll Specialist,2024-03-22,621,PartTime,24,4,1,0,Afternoon,,850.61,26,4,1,4,5.73,31.4,81,92.1,1,0,69,0,1,1,2025-08-13,0
+230,Engineering,DevOps,2019-06-29,2349,FullTime,40,1,1,0,Morning,Coding|SystemDesign,747.67,26,4,0,8,4.02,33.9,67,91.1,0,0,75,0,0,1,2025-05-27,0
+231,Finance,Accountant,2022-08-29,1192,FullTime,40,3,1,0,Morning,,1152.14,29,1,3,0,2.75,39.4,80,85.2,0,0,86,0,0,1,2025-07-19,0
+232,Support,Support Agent,2022-02-12,1390,FullTime,40,5,1,0,Morning,CustomerService|Troubleshooting,622.6,26,4,2,11,3.2,28.9,59,84.6,0,0,66,0,1,1,2025-04-12,0
+233,Support,Support Agent,2025-01-28,309,PartTime,24,2,1,0,Morning,CustomerService|Troubleshooting,526.17,28,2,1,9,5.79,40.5,89,86.7,0,0,78,0,0,0,,0
+234,Operations,Logistics Coordinator,2018-06-17,2726,Contract,20,2,1,0,Morning,,524.97,27,3,1,3,0.0,28.3,101,90.8,0,0,79,0,0,1,2025-03-08,0
+235,Marketing,SEO Specialist,2018-12-15,2545,FullTime,40,0,1,0,Morning,,836.85,29,1,4,8,0.31,2.2,73,92.0,0,1,74,0,0,1,2025-10-07,0
+236,Support,Support Agent,2023-09-08,817,Contract,20,1,1,0,Remote,CustomerService|Troubleshooting,767.8,29,1,3,3,3.41,20.7,115,86.3,0,2,67,0,1,1,2025-03-23,0
+237,Finance,Payroll Specialist,2020-02-18,2115,FullTime,40,4,0,1,Morning,,729.4,29,1,2,10,5.19,22.5,78,91.6,0,2,74,0,0,1,2025-02-26,0
+238,Sales,Sales Rep,2020-08-23,1928,FullTime,40,0,1,0,Morning,Negotiation|CRM,589.78,27,3,4,10,3.86,26.8,86,93.1,0,0,73,0,0,1,2025-10-26,0
+239,Engineering,DevOps,2018-12-09,2551,FullTime,40,5,0,0,Remote,Coding|SystemDesign,836.84,30,0,1,9,0.86,37.0,87,88.5,0,2,95,0,0,1,2024-12-26,0
+240,Support,Support Agent,2022-12-06,1093,FullTime,40,4,1,0,Morning,CustomerService|Troubleshooting,816.1,29,1,2,3,0.64,27.5,79,89.6,0,0,62,1,1,1,2025-02-18,0
+241,Sales,Sales Rep,2017-12-22,2903,PartTime,24,5,1,0,Morning,Negotiation|CRM,360.68,26,4,2,1,2.02,12.1,83,82.1,0,0,68,0,1,1,2025-08-12,0
+242,HR,Recruiter,2020-01-01,2163,FullTime,40,3,1,0,Morning,,715.91,26,4,2,12,3.52,15.5,105,88.5,0,0,79,0,0,0,,0
+243,Finance,Accountant,2022-11-16,1113,PartTime,24,0,1,0,Morning,,884.74,28,2,2,7,2.07,23.7,82,85.6,0,0,80,0,0,0,,0
+244,Marketing,Content Specialist,2021-01-04,1794,FullTime,40,2,1,0,Afternoon,,1085.82,28,2,4,5,3.42,31.9,85,90.3,0,1,69,0,1,1,2025-04-02,1
+245,Support,Technical Support,2021-07-13,1604,FullTime,40,3,1,0,Morning,CustomerService|Troubleshooting,728.91,27,3,1,10,4.7,34.9,111,87.2,0,0,61,1,0,1,2025-10-01,0
+246,Support,Technical Support,2022-04-14,1329,FullTime,40,0,1,0,Afternoon,CustomerService|Troubleshooting,646.08,27,3,2,10,3.66,23.6,79,87.6,0,2,74,0,0,1,2025-07-15,0
+247,Marketing,SEO Specialist,2018-03-11,2824,Contract,20,5,1,0,Afternoon,,773.05,26,4,0,18,3.68,24.6,74,86.4,0,0,80,0,0,0,,0
+248,Engineering,QA Engineer,2022-10-12,1148,FullTime,40,5,1,0,Morning,Coding|SystemDesign|Testing|Automation,708.18,28,2,2,0,2.56,24.6,56,81.3,0,0,78,0,0,1,2024-12-17,0
+249,Engineering,DevOps,2019-09-02,2284,Contract,20,1,1,0,Morning,Coding|SystemDesign,353.48,28,2,2,0,2.57,21.4,84,92.8,0,0,68,0,1,0,,0
+250,Support,Support Agent,2018-04-13,2791,FullTime,40,3,1,0,Morning,CustomerService|Troubleshooting,892.63,28,2,1,9,1.44,38.3,86,96.0,2,0,81,1,1,0,,1
+251,Admin,Executive Assistant,2021-08-30,1556,FullTime,40,0,1,0,Morning,,594.59,27,3,3,12,5.9,21.7,101,82.8,1,1,76,0,1,1,2025-05-03,0
+252,Support,Technical Support,2018-04-12,2792,PartTime,24,2,1,0,Remote,CustomerService|Troubleshooting,337.22,30,0,2,7,0.0,24.0,75,87.0,0,0,67,0,1,0,,0
+253,Operations,Logistics Coordinator,2025-10-23,41,FullTime,40,3,1,0,Morning,,769.35,26,4,1,7,2.06,16.1,86,72.7,0,0,80,0,0,1,2025-02-13,0
+254,Admin,Executive Assistant,2018-12-05,2555,FullTime,40,2,0,1,Morning,,859.76,30,0,0,7,2.72,21.6,55,79.5,0,0,79,0,0,0,,0
+255,Support,Technical Support,2025-10-09,55,FullTime,40,3,1,0,Afternoon,CustomerService|Troubleshooting,430.54,27,3,2,14,7.56,12.8,81,86.7,1,0,61,1,1,0,,0
+256,Marketing,SEO Specialist,2020-11-22,1837,PartTime,24,0,1,0,Morning,,526.62,27,3,0,4,5.19,23.6,69,97.8,0,1,95,0,0,1,2025-06-01,0
+257,Operations,Logistics Coordinator,2024-07-13,508,FullTime,40,0,1,0,Afternoon,,858.84,26,4,3,6,3.84,21.6,75,86.4,0,1,83,0,0,1,2025-10-01,0
+258,Finance,Accountant,2021-12-17,1447,FullTime,40,3,1,0,Remote,,655.83,29,1,1,0,2.15,34.0,98,86.3,1,0,74,0,1,1,2025-09-03,0
+259,Sales,Sales Rep,2025-04-15,232,FullTime,40,2,1,0,Morning,Negotiation|CRM,440.01,26,4,0,9,3.42,26.8,92,78.5,0,0,82,0,0,1,2025-08-07,0
+260,Support,Technical Support,2018-04-24,2780,FullTime,40,2,1,0,Morning,CustomerService|Troubleshooting,802.4,27,3,2,9,3.37,34.2,79,93.2,0,1,71,0,0,1,2025-10-03,0
+261,Support,Technical Support,2022-12-13,1086,FullTime,40,0,1,0,Morning,CustomerService|Troubleshooting,615.66,28,2,3,7,2.28,27.5,62,81.8,0,0,65,0,1,0,,0
+262,Finance,Payroll Specialist,2018-10-25,2596,PartTime,24,2,1,0,Morning,,686.67,28,2,0,7,2.13,11.8,83,96.3,0,0,82,0,0,1,2025-08-17,0
+263,Sales,Account Manager,2020-05-04,2039,FullTime,40,0,1,0,Morning,,600.41,27,3,2,1,4.26,35.0,87,90.4,0,0,80,0,0,1,2025-02-23,0
+264,Sales,Account Manager,2020-02-03,2130,PartTime,24,2,1,0,Remote,,490.09,28,2,2,12,3.72,29.0,93,90.9,0,0,87,0,0,1,2025-02-22,0
+265,Finance,Payroll Specialist,2018-08-19,2663,FullTime,40,1,1,0,Morning,,1071.02,25,5,3,0,3.58,30.2,88,82.3,1,3,57,1,1,1,2025-04-28,0
+266,Support,Support Agent,2021-06-03,1644,FullTime,40,1,1,0,Remote,CustomerService|Troubleshooting,653.92,27,3,2,0,4.38,26.2,100,92.0,0,0,70,0,0,0,,0
+267,Operations,Logistics Coordinator,2022-07-10,1242,PartTime,24,4,1,0,Morning,,399.45,28,2,2,1,2.69,16.5,108,83.0,1,0,64,1,1,0,,0
+268,Support,Support Agent,2020-12-24,1805,FullTime,40,1,1,0,Afternoon,CustomerService|Troubleshooting,388.65,28,2,1,1,1.13,31.4,76,78.7,1,0,59,1,1,0,,0
+269,Admin,Executive Assistant,2023-02-18,1019,FullTime,40,4,1,0,Afternoon,,429.23,26,4,4,4,2.03,17.3,97,87.3,0,0,72,0,0,1,2025-03-22,0
+270,Engineering,QA Engineer,2025-06-29,157,FullTime,40,4,1,0,Remote,Coding|SystemDesign|Testing|Automation,784.5,28,2,2,2,7.11,21.1,62,93.4,1,0,77,0,1,1,2025-04-14,0
+271,Support,Technical Support,2024-02-07,665,Contract,20,2,1,0,Afternoon,CustomerService|Troubleshooting,420.47,23,7,3,17,2.65,23.4,58,91.3,1,1,59,1,1,0,,0
+272,HR,HR Generalist,2020-06-15,1997,FullTime,40,2,1,0,Afternoon,Recruitment,604.54,28,2,2,4,0.0,30.6,75,89.6,0,0,67,0,1,0,,0
+273,Sales,Account Manager,2021-03-28,1711,FullTime,40,5,1,0,Morning,,904.25,30,0,1,8,2.88,32.3,87,94.1,0,1,93,0,0,1,2025-03-08,0
+274,Sales,Sales Rep,2020-07-17,1965,Contract,20,2,1,0,Afternoon,Negotiation|CRM,1104.95,29,1,3,12,4.15,9.2,89,93.3,0,0,79,0,0,1,2025-05-21,0
+275,Marketing,SEO Specialist,2021-09-09,1546,FullTime,40,4,1,0,Afternoon,,1138.8,28,2,1,9,2.68,17.2,111,86.9,0,1,91,0,0,1,2025-10-17,0
+276,Support,Technical Support,2019-01-08,2521,FullTime,40,1,0,0,Morning,CustomerService|Troubleshooting,657.77,27,3,3,0,6.57,22.4,89,77.6,0,0,80,0,0,1,2025-04-02,0
+277,Support,Technical Support,2024-11-01,397,Contract,20,0,1,0,Morning,CustomerService|Troubleshooting,426.32,29,1,4,4,4.54,27.4,70,82.4,0,1,59,1,1,0,,0
+278,Marketing,Content Specialist,2020-04-02,2071,FullTime,40,4,1,0,Afternoon,,809.37,28,2,4,6,6.92,18.4,77,92.5,1,1,67,0,1,0,,0
+279,Support,Technical Support,2021-11-19,1475,FullTime,40,0,1,0,Morning,CustomerService|Troubleshooting,522.53,27,3,5,0,6.34,20.2,138,92.3,0,0,87,0,0,1,2025-03-03,0
+280,Engineering,QA Engineer,2022-08-14,1207,PartTime,24,2,1,0,Morning,Coding|SystemDesign|Testing|Automation,1065.23,30,0,2,6,1.83,25.6,91,84.5,1,1,86,0,1,0,,0
+281,Operations,Logistics Coordinator,2023-06-30,887,FullTime,40,2,0,1,Remote,,1005.6,27,3,2,12,5.75,32.7,81,84.8,0,1,75,0,0,1,2025-10-30,0
+282,Sales,Sales Rep,2021-07-28,1589,FullTime,40,3,1,0,Morning,Negotiation|CRM,639.4,28,2,5,5,3.97,28.0,113,96.9,0,1,92,0,0,1,2025-03-15,0
+283,Admin,Executive Assistant,2021-09-28,1527,FullTime,40,4,1,0,Afternoon,,991.76,29,1,3,12,6.13,26.6,87,88.7,1,2,61,1,1,0,,0
+284,Engineering,QA Engineer,2021-09-04,1551,FullTime,40,1,1,0,Morning,Coding|SystemDesign|Testing|Automation,503.22,26,4,2,5,2.01,16.3,88,95.6,0,0,88,0,0,1,2025-07-03,0
+285,Marketing,Content Specialist,2021-03-07,1732,FullTime,40,3,1,0,Morning,,897.93,26,4,3,2,4.38,23.1,87,100.0,0,0,73,0,0,1,2025-10-23,0
+286,Operations,Logistics Coordinator,2021-07-26,1591,FullTime,40,1,1,0,Morning,,680.49,28,2,3,12,5.19,30.4,99,90.9,0,0,64,1,1,0,,0
+287,Finance,Payroll Specialist,2021-09-07,1548,PartTime,24,3,1,0,Afternoon,,645.21,24,6,1,3,1.17,28.1,63,85.3,0,0,79,1,0,1,2025-10-18,0
+288,Support,Technical Support,2022-09-06,1184,FullTime,40,2,1,0,Remote,CustomerService|Troubleshooting,722.4,29,1,1,7,4.19,35.0,89,85.1,0,0,79,0,0,1,2025-01-08,0
+289,Operations,Office Manager,2021-02-23,1744,Contract,20,4,1,0,Remote,,765.39,29,1,1,1,3.41,34.9,106,94.7,1,0,82,0,1,0,,0
+290,Engineering,QA Engineer,2018-06-23,2720,FullTime,40,0,1,0,Remote,Coding|SystemDesign|Testing|Automation,659.8,28,2,2,15,4.58,25.3,101,81.2,0,0,83,0,0,1,2025-06-23,0
+291,Engineering,DevOps,2018-05-13,2761,FullTime,40,2,1,0,Afternoon,Coding|SystemDesign,841.9,28,2,1,3,1.63,27.7,113,93.0,0,0,78,0,0,1,2025-09-25,0
+292,Finance,Payroll Specialist,2018-11-08,2582,FullTime,40,3,1,0,Morning,,1048.01,27,3,1,0,1.4,32.3,86,85.0,0,0,73,0,0,1,2025-08-06,0
+293,Engineering,Software Engineer,2024-12-01,367,Contract,20,2,1,0,Morning,Coding|SystemDesign,627.16,27,3,0,9,6.45,31.2,92,87.8,0,0,80,0,0,0,,0
+294,Sales,Account Manager,2023-10-11,784,FullTime,40,2,1,0,Afternoon,,662.31,28,2,1,1,4.1,17.3,71,90.5,0,0,96,0,0,1,2024-12-21,0
+295,Operations,Office Manager,2025-06-06,180,FullTime,40,0,1,0,Remote,,806.8,27,3,2,5,2.45,27.4,77,80.9,0,0,71,0,0,1,2025-06-28,0
+296,Admin,Executive Assistant,2024-10-09,420,FullTime,40,3,1,0,Morning,,959.4,27,3,0,10,2.74,31.9,64,92.9,0,0,76,0,0,1,2025-06-13,0
+297,Operations,Office Manager,2024-07-24,497,PartTime,24,4,1,0,Morning,,379.98,28,2,2,5,0.5,8.9,71,71.1,1,1,70,0,1,0,,0
+298,Support,Support Agent,2017-12-19,2906,FullTime,40,4,1,0,Morning,CustomerService|Troubleshooting,468.89,26,4,2,9,0.37,32.7,81,85.7,0,0,76,0,0,0,,0
+299,Sales,Sales Rep,2022-05-17,1296,PartTime,24,5,1,0,Morning,Negotiation|CRM,501.85,28,2,0,8,4.58,17.7,100,83.6,0,1,78,0,0,0,,0
+300,Support,Support Agent,2025-10-05,59,FullTime,40,0,1,0,Morning,CustomerService|Troubleshooting,288.78,28,2,1,7,5.81,33.0,60,76.4,0,0,76,0,0,0,,0

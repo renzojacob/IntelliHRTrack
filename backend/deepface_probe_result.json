@@ -1,0 +1,16 @@
+{
+  "mod_dir": [
+    "__builtins__",
+    "__cached__",
+    "__doc__",
+    "__file__",
+    "__loader__",
+    "__name__",
+    "__package__",
+    "__path__",
+    "__spec__",
+    "__version__"
+  ],
+  "mod_repr": "<module 'deepface' from 'C:\\\\Users\\\\Guest 01\\\\Downloads\\\\IntelliHRTrack\\\\env\\\\Lib\\\\site-packages\\\\deepface\\\\__init__.py'>",
+  "from_ok": true
+}
